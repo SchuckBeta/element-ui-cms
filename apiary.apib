@@ -1,80 +1,65 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
 
 # element-ui-plus
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+# Group Account
 
-## Questions Collection [/questions]
-
-### List All Questions [GET]
+## Login [GET /login]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njg2ODUyMDcsImlhdCI6MTUzNzE0OTIwNywidXNlcl9pZCI6MSwib3duZXIiOiJ6d3kifQ.kh2AI8kTo90WRoTr2TSSJhu3Ox8DHsD1fcgJfCqBDwA",
+            "id": "1",
+            "name": "panhezeng",
+            "email": "panhezeng@gmail.com",
+            "phone": 11111111111,
+            "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+            "organ": "Pxipyimhkg Nrtgkhy Rpno Ygsls Qfjnhwcr",
+             "groups": [
+                  {
+                    "id": 1,
+                    "name": "超级管理员",
+                    "menu": [
+                      {
+                        "title": "网站内容管理",
+                        "children": [
+                          {
+                            "title": "公告",
+                            "path": "/announcement"
+                          },
+                          {
+                            "title": "轮播",
+                            "path": "/banner"
+                          },
+                          {
+                            "title": "推荐栏目",
+                            "path": "/web_column"
+                          },
+                          {
+                            "title": "网站介绍",
+                            "path": "/about"
+                          }
+                        ]
+                      },
+                      {
+                        "title": "系统管理",
+                        "children": [ 
+                          {
+                            "title": "CMS角色",
+                            "path": "/role"
+                          },
+                          {
+                            "title": "CMS用户",
+                            "path": "/user"
+                          } 
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": 2,
+                    "name": "网站内容管理员"
+                  } 
                 ]
-            }
+        }
