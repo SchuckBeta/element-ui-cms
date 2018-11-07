@@ -4,16 +4,9 @@ FORMAT: 1A
 
 # Group Account
 
-## Login [POST /api/cms/login/]
+## Account [/api/cms/account/]
 
-+ Request (application/json)
-
-        {
-          "username": "panhezeng",
-          "password": "panhezeng"
-        }
-
-+ Response 200 (application/json)
++ Model (application/json)
 
         {
             "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njg2ODUyMDcsImlhdCI6MTUzNzE0OTIwNywidXNlcl9pZCI6MSwib3duZXIiOiJ6d3kifQ.kh2AI8kTo90WRoTr2TSSJhu3Ox8DHsD1fcgJfCqBDwA",
@@ -70,3 +63,23 @@ FORMAT: 1A
                   } 
                 ]
         }
+
+### GET
+
++ Response 200
+
+    [Account][]
+
+## Login [POST /api/cms/login/]
+
++ Request (application/json)
+
+        {
+          "username": "panhezeng",
+          "password": "panhezeng"
+        }
+
++ Response 200 (application/json)
+
+        [Account][]
+
