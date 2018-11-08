@@ -2,6 +2,29 @@ FORMAT: 1A
 
 # element-ui-plus
 
+# Group Common
+
+## Options [GET /api/cms/options/]
+
++ Response 200
+
+        {
+            "permissions": [{"text": "审核权限", "value": 1000}],
+            "resource_type": [
+              {
+                "text": "课程",
+                "value": 1,
+                "key":"course"
+              }
+            ]
+        }
+        
+## Todos [GET /api/cms/todos/]
+
++ Response 200
+
+        []        
+        
 # Group Account
 
 ## Account [/api/cms/account/]
@@ -88,11 +111,3 @@ FORMAT: 1A
 + Response 200
 
     [Account][]
-
-# Group Dashboard
-
-## Todo [GET /api/cms/todo/]
-
-+ Response 200
-
-        []
