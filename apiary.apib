@@ -132,22 +132,22 @@ FORMAT: 1A
     + updated_time: `1980-09-02 00:00:00`  
     
          
-### Retrieve a Announcement [GET]
+### Retrieve Announcement [GET]
 
 + Response 200 (application/json)
     + Attributes (Announcement)
     
-### Update a Announcement [PATCH]
+### Update Announcement [PATCH]
 
 + Response 200 (application/json)
     
-## All Announcements [/api/cms/announcement/{?limit,offset,search}]
+## Announcements Collection [/api/cms/announcement/{?limit,offset,search}]
 
 + Attributes
     + count: 1 (number)
     + results (array[Announcement])
 
-### Retrieve all Announcements [GET]
+### Retrieve Announcements [GET]
 
 + Parameters
     + limit
@@ -157,9 +157,7 @@ FORMAT: 1A
 + Response 200 (application/json)
     + Attributes (All Announcements)
 
-## Update bulk Announcements [/api/cms/announcement/{?ids}]
-
-### Retrieve all Announcements [GET]
+## Update Announcements [PATCH /api/cms/announcement/{?ids}]
 
 + Parameters
     + ids
