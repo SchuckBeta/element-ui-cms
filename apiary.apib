@@ -140,27 +140,38 @@ FORMAT: 1A
 ### Update Announcement [PATCH]
 
 + Response 200 (application/json)
-    
-## Announcements Collection [/api/cms/announcement/{?limit,offset,search}]
 
+### Delete Announcement [DELETE]
+
++ Response 200 (application/json)
+    
+## Announcements Collection [/api/cms/announcement/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
 + Attributes
     + count: 1 (number)
     + results (array[Announcement])
 
 ### Retrieve Announcements [GET]
 
-+ Parameters
-    + limit
-    + offset
-    + search
-
 + Response 200 (application/json)
     + Attributes (All Announcements)
 
-## Update Announcements [PATCH /api/cms/announcement/{?ids}]
+## Update Announcements [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
 
-+ Parameters
-    + ids
+## Delete Announcements [DELETE]
     
 + Request (application/json)
     + Headers
