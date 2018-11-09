@@ -111,3 +111,42 @@ FORMAT: 1A
 + Response 200
 
     [Account][]
+
+# Group Announcement
+
+## Announcement [/api/cms/announcement/{id}/]
+
++ Parameters
+    + id (number) 
+    
++ Attributes (object)
+    + id: `1`
+    + title: title
+    + type: `1` 
+    + top: `1` 
+    + status: `1` 
+    + content: content
+    + attachment (array)
+    + creator: creator
+    + created_time: 1980-09-02 00:00:00
+    + updated_time: 1980-09-02 00:00:00
+    
+         
+### Retrieve a Announcement [GET]
+
++ Response 200 (application/json)
+    + Attributes (Announcement)
+    
+## All Announcements [/api/cms/announcement/{?limit,offset,search}]
+
++ Attributes (array[Announcement, Announcement])
+
+### Retrieve all Announcements [GET]
+
++ Parameters
+    + limit
+    + offset
+    + search
+
++ Response 200 (application/json)
+    + Attributes (All Announcements)
