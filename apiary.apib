@@ -137,6 +137,10 @@ FORMAT: 1A
 + Response 200 (application/json)
     + Attributes (Announcement)
     
+### Update a Announcement [PATCH]
+
++ Response 200 (application/json)
+    
 ## All Announcements [/api/cms/announcement/{?limit,offset,search}]
 
 + Attributes
@@ -152,3 +156,16 @@ FORMAT: 1A
 
 + Response 200 (application/json)
     + Attributes (All Announcements)
+
+## Update bulk Announcements [/api/cms/announcement/{?ids}]
+
+### Retrieve all Announcements [GET]
+
++ Parameters
+    + ids
+    
++ Request (application/json)
+        + Headers
+                X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
