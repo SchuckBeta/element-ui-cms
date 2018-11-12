@@ -193,3 +193,75 @@ FORMAT: 1A
             X-BULK-OPERATION: true
         
 + Response 200 (application/json)
+
+# Group Banner
+
+## Banner [/api/cms/banner/{id}/]
+
++ Parameters
+    + id (number) 
+    
++ Attributes (object)
+    + id: 1 (number)
+    + title: title
+    + type: 1 (number)
+    + top: 1 (number)
+    + status: 1 (number)
+    + content: content
+    + attachment (array)
+    + creator: creator
+    + created_time: `1980-09-02 00:00:00`
+    + updated_time: `1980-09-02 00:00:00`  
+    
+         
+### Retrieve Banner [GET]
+
++ Response 200 (application/json)
+    + Attributes (Banner)
+    
+### Update Banner [PATCH]
+
++ Response 200 (application/json)
+
+### Delete Banner [DELETE]
+
++ Response 200 (application/json)
+
+## Banners Collection [/api/cms/banner/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Banner])
+    
+### Create Banner [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Banners [GET]
+
++ Response 200 (application/json)
+    + Attributes (Banners Collection)
+
+## Update Banners [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Banners [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
