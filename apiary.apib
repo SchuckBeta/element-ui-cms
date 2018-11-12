@@ -8,14 +8,15 @@ FORMAT: 1A
 
 ### OPTIONS
 
-+ Response 200
++ Response 200 (application/json)
     
 ### PUT
 
-+ Response 200
++ Response 200 (application/json)
 
         {
-            "Location": "dummyimage.com/200x100/50B347/FFF&text=panhezeng"
+            "Location": "dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+            "statusCode": 200
         }
 
 ## Options [GET /api/cms/options/]
@@ -35,7 +36,7 @@ FORMAT: 1A
         
 ## Todos [GET /api/cms/todos/]
 
-+ Response 200
++ Response 200 (application/json)
 
         []        
         
