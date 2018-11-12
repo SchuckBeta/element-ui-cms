@@ -204,11 +204,16 @@ FORMAT: 1A
 + Attributes (object)
     + id: 1 (number)
     + title: title
-    + type: 1 (number)
-    + top: 1 (number)
+    + picture: `http://dummyimage.com/200x100/50B347/FFF&text=panhezeng`
+    + link_type: 1 (number)
+    + url
+    + resource (Resource)
+    + resource_type: 1 (number)
+    + resource_id: 1 (number)
+    + order: 1 (number)
+    + client: 1 (number)
     + status: 1 (number)
     + content: content
-    + attachment (array)
     + creator: creator
     + created_time: `1980-09-02 00:00:00`
     + updated_time: `1980-09-02 00:00:00`  
@@ -265,3 +270,9 @@ FORMAT: 1A
             X-BULK-OPERATION: true
         
 + Response 200 (application/json)
+
+
+# Data Structures
+
+## Resource (object)
++ title
