@@ -14,6 +14,27 @@ FORMAT: 1A
 
 + Response 200 (application/json)
 
+## Search [GET /api/cms/search/{?word,type}]
+
++ Parameters
+    + word
+    + type
+    
++ Response 200 (application/json)
+
+        {
+            "course": {
+                "count": 16,
+                "results": [
+                    {
+                        "id": 1,
+                        "title": "课程1", 
+                        "resource_type": 1
+                    }, 
+                ],
+            }
+        }
+        
 ## Options [GET /api/cms/options/]
 
 + Response 200 (application/json)
@@ -27,7 +48,7 @@ FORMAT: 1A
                 "key":"course"
               }
             ]
-        }
+        }        
         
 ## Todos [GET /api/cms/todos/]
 
