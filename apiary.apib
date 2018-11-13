@@ -326,7 +326,9 @@ FORMAT: 1A
 + Attributes (object)
     + id: 1 (number)
     + name: 超级管理员
-    + permissions (array[Permission])
+    + permissions (array)
+        + 1 (number)
+        + 2 (number)        
     + menus (array[Menu]) 
          
 ### Retrieve Role [GET]
@@ -390,6 +392,6 @@ FORMAT: 1A
 + id: 1 (number)
 + title: 网站内容管理
 + children (array)
-
-## Permission
-+ id: 1 (number)
+    + (object)
+        + id: 2 (number)
+        + title: 公告
