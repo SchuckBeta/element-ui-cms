@@ -313,7 +313,77 @@ FORMAT: 1A
 
 + Response 200 (application/json)
 
+# Group Role
+
+## Role [/api/cms/role/{id}/]
+
++ Parameters
+    + id (number) 
+    
++ Attributes (object)
+    + id: 1 (number)
+    + name: 超级管理员
+    + permissions: `1` (array)
+    + menus (array[Menu]) 
+         
+### Retrieve Role [GET]
+
++ Response 200 (application/json)
+    + Attributes (Role)
+    
+### Update Role [PATCH]
+
++ Response 200 (application/json)
+
+### Delete Role [DELETE]
+
++ Response 200 (application/json)
+
+## Roles Collection [/api/cms/role/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Role])
+    
+### Create Role [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Roles [GET]
+
++ Response 200 (application/json)
+    + Attributes (Roles Collection)
+
+## Update Roles [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Roles [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
 # Data Structures
 
 ## Resource (object)
 + title: 课程1
+
+## Menu (object)
++ id: 1 (number)
++ title: 网站内容管理
++ children (array)
