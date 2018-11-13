@@ -22,8 +22,17 @@ FORMAT: 1A
     
 + Response 200 (application/json)
 
-        {"course": {"count": 16,"results":[{"id": 1,"title": "课程1", "resource_type": 1,"is_active": 1,"status": 1},],}}
-
+        {
+            "permissions": [{"text": "审核权限", "value": 1000}],
+            "resource_type": [
+              {
+                "text": "课程",
+                "value": 1,
+                "key":"course"
+              }
+            ]
+        }   
+        
 ## Options [GET /api/cms/options/]
 
 + Response 200 (application/json)
