@@ -65,17 +65,19 @@ FORMAT: 1A
 + Model (application/json)
 
         {
-            "token": "panhezeng.token",
-            "id": "1",
-            "name": "panhezeng",
-            "email": "panhezeng@gmail.com",
-            "phone": 11111111111,
-            "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
-            "organ": "P Organ",
+             "token": "panhezeng.token",
+             "id": "1",
+             "name": "panhezeng",
+             "email": "panhezeng@gmail.com",
+             "phone": 11111111111,
+             "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+             "organ": "Pan Organ",           
+             "current_role_id": 1,
              "groups": [
                   {
                     "id": 1,
                     "name": "超级管理员",
+                    "is_review": 1,
                     "menus": [
                       {
                         "title": "网站内容管理",
@@ -117,7 +119,7 @@ FORMAT: 1A
                     "id": 2,
                     "name": "网站内容管理员"
                   } 
-                ]
+             ]
         }
 
 ### GET
@@ -330,15 +332,6 @@ FORMAT: 1A
 + Parameters
     + id: 1 (number)
     
-+ Attributes (object)
-    + id: 1 (number)
-    + name: 超级管理员
-    + permissions (array)
-        + 1 (number)
-        + 2 (number)        
-        + 1000 (number)        
-    + menus (array[Menu]) 
-         
 ### Retrieve Role [GET]
 
 + Response 200 (application/json)
@@ -391,6 +384,72 @@ FORMAT: 1A
         
 + Response 200 (application/json)
 
+# Group User
+
+## User [/api/cms/user/{id}/]
+
++ Parameters
+    + id: 1 (number)
+    
++ Attributes (object)
+    + id: 1 (number)
+    + name: panhezeng
+    + organ: `Pan Organ`
+    + groups (array[Role])
+    + status: 1
+         
+### Retrieve User [GET]
+
++ Response 200 (application/json)
+    + Attributes (User)
+    
+### Update User [PATCH]
+
++ Response 200 (application/json)
+
+### Delete User [DELETE]
+
++ Response 200 (application/json)
+
+## Users Collection [/api/cms/user/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[User])
+    
+### Create Users [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Users [GET]
+
++ Response 200 (application/json)
+    + Attributes (Users Collection)
+
+## Update Users [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Users [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
 # Data Structures
 
 ## Resource (object)
@@ -403,3 +462,13 @@ FORMAT: 1A
     + (object)
         + id: 2 (number)
         + title: 公告
+        
+## Role (object)
++ id: 1 (number)
++ name: 超级管理员
++ permissions (array)
+    + 1 (number)
+    + 2 (number)        
+    + 1000 (number)        
++ menus (array[Menu])
++ is_review: 1 (number)
