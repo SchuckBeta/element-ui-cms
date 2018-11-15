@@ -14,10 +14,6 @@ FORMAT: 1A
 
 + Response 200 (application/json)
 
-    + Headers
-        
-            etag: etag
-
 ## Search [GET /api/cms/search/{?word,type}]
 
 + Parameters
@@ -335,7 +331,11 @@ FORMAT: 1A
 + Attributes
     + count: 1 (number)
     + results (array[Column])
-        
+    
+### Create Column [POST]
+
++ Response 200 (application/json)   
+         
 ### Retrieve Columns [GET]
 
 + Response 200 (application/json)
@@ -422,7 +422,7 @@ FORMAT: 1A
     + count: 1 (number)
     + results (array[User])
     
-### Create Users [POST]
+### Create User [POST]
 
 + Response 200 (application/json)    
 
@@ -481,7 +481,7 @@ FORMAT: 1A
     + count: 1 (number)
     + results (array[User])
     
-### Create Administrators [POST]
+### Create Administrator [POST]
 
 + Response 200 (application/json)    
 
