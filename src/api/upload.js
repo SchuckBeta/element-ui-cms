@@ -8,8 +8,8 @@ const config = {
 
 const cos = new COS({
   CompatibilityMode: true,
-  ServiceDomain: "https://private-3fcd8b-elementuiplus.apiary-mock.com/cos",
-  Domain: "https://private-3fcd8b-elementuiplus.apiary-mock.com/cos",
+  ServiceDomain: "https://private-3fcd8b-elementuicms.apiary-mock.com/cos",
+  Domain: "https://private-3fcd8b-elementuicms.apiary-mock.com/cos",
   getAuthorization: function(options, callback) {
     // 方法四、前端使用固定密钥计算签名（适用于前端调试）
     var authorization = COS.getAuthorization({
@@ -64,7 +64,10 @@ export const fn = {
         if (err) {
           reject(new Error("上传失败"));
         } else {
-          data.url = `http://${data.Location}`;
+          // mock演示
+          data.url = "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng";
+          // 腾讯云真实返回地址
+          // data.url = `http://${data.Location}`;
           resolve({ data });
         }
         //        console.log(err || data)

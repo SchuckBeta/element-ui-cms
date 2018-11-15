@@ -12,6 +12,6 @@ shell.cp("-R", resolve("dist/*"), resolve("docs"));
 shell.sed(
   "-i",
   "/api/cms",
-  "https://easy-mock.com/mock/5ae1806b6ad7b17bb7d2cb58/element-ui-plus/api/cms",
+  "https://private-3fcd8b-elementuicms.apiary-mock.com",
   resolve("docs/static/js/app*.js")
 );

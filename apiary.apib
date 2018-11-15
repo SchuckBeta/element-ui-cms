@@ -43,6 +43,7 @@ FORMAT: 1A
 
         {
             "permissions": [{"text": "审核权限", "value": 1000}],
+            "organs": [{"id": 1, "title": "Pan Organ"}],
             "resource_type": [
               {
                 "text": "课程",
@@ -71,7 +72,7 @@ FORMAT: 1A
              "email": "panhezeng@gmail.com",
              "phone": 11111111111,
              "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
-             "organ": "Pan Organ",           
+             "organ_name": "Pan Organ",           
              "groups": [
                   {
                     "id": 1,
@@ -299,6 +300,55 @@ FORMAT: 1A
         
 + Response 200 (application/json)
 
+# Group Column
+
+## Column [/api/cms/column/{type}/{id}/]
+
++ Parameters
+    + type
+    + id: 1 (number)
+    
++ Attributes
+    + id: 1 (number)
+    + title: 课程推荐 
+    + child_resource_type: 1 (number)    
+    + status: 1 (number)
+    + resource_type: 1 (number)
+    + resource_id: 1 (number)    
+    + resource_title: 课程1
+
+## Columns Collection [/api/cms/column/{type}/{?limit,offset,search,ids,resource_type,pid}]
+
++ Parameters
+    + type: web
+    + limit
+    + offset
+    + search
+    + ids
+    + resource_type
+    + pid
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Column])
+    
+### Create Column [POST]
+
++ Response 200 (application/json)   
+         
+### Retrieve Columns [GET]
+
++ Response 200 (application/json)
+    + Attributes (Columns Collection)
+
+## Update Columns [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
 
 # Group About
     
@@ -331,7 +381,10 @@ FORMAT: 1A
 + Attributes (object)
     + id: 1 (number)
     + name: panhezeng
-    + organ: `Pan Organ`
+    + organ_name: `Pan Organ`
+    + organ_id: 1 (number)
+    + organ_id_path (array)
+        + 1 (number)
     + email: panhezeng@gmail.com,
     + phone: 11111111111,
     + avatar: http://dummyimage.com/200x100/50B347/FFF&text=panhezeng,    
@@ -351,6 +404,12 @@ FORMAT: 1A
 
 + Response 200 (application/json)
 
+## Users Excel Import [POST /api/cms/user/excel/import/]
+
++ Response 200 (application/json)
+
+        []
+
 ## Users Collection [/api/cms/user/{?limit,offset,search,ids}]
 
 + Parameters
@@ -363,7 +422,7 @@ FORMAT: 1A
     + count: 1 (number)
     + results (array[User])
     
-### Create Users [POST]
+### Create User [POST]
 
 + Response 200 (application/json)    
 
@@ -422,7 +481,7 @@ FORMAT: 1A
     + count: 1 (number)
     + results (array[User])
     
-### Create Administrators [POST]
+### Create Administrator [POST]
 
 + Response 200 (application/json)    
 

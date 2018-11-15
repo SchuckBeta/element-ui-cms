@@ -3,7 +3,7 @@ import Vue from "vue";
 
 export const url = {
   index: "/user/",
-  excelImport: "/user/import/"
+  excelImport: "/user/excel/import/"
 };
 
 export default {

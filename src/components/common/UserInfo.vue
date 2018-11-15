@@ -2,7 +2,7 @@
   <div class="user-info">
     <avatar :url="user.avatar"/>
     <div class="info">
-      <div class="organ" v-if="user.organ">{{user.organ}}</div>
+      <div class="organ" v-if="user.organ_name">{{user.organ_name}}</div>
       <div class="name">{{user.name}}</div>
       <div class="role">{{currentRole.name}}</div>
     </div>

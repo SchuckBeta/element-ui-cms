@@ -57,7 +57,7 @@ const state = {
     avatar: "",
     email: "",
     phone: "",
-    organ: "",
+    organ_name: "",
     // 用户所有角色role
     groups: []
   }

@@ -74,7 +74,7 @@ module.exports = {
   devServer: {
     proxy: {
       "/api": {
-        target: "https://private-3fcd8b-elementuiplus.apiary-mock.com",
+        target: "https://private-3fcd8b-elementuicms.apiary-mock.com",
         ws: true,
         changeOrigin: true
       }

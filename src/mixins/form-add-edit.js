@@ -106,7 +106,10 @@ export default {
         history.length < 3 ||
         this.$store.state.pages.tabs.length < 2
       ) {
-        this.$router.push({ path: path.replace(/(\/add|\/edit).*$/, "") });
+        this.$router.push({
+          path: path.replace(/(\/add|\/edit).*$/, ""),
+          query: this.$route.query
+        });
       } else {
         this.$router.back();
       }
@@ -157,7 +160,6 @@ export default {
             message: this.submitSuccessMessage,
             type: "success"
           });
-
         if (this.afterSubmitBack) this.back();
         this.formSubmitLoading = false;
       } catch (e) {

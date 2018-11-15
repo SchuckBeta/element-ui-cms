@@ -48,7 +48,8 @@ const state = {
         text: "已下线",
         value: -1
       }
-    ]
+    ],
+    organs: []
   }
 };
 
@@ -79,10 +80,10 @@ const mutations = {
     }
 
     if (
-      Object.prototype.toString.call(data.organ) === "[object Array]" &&
-      data.organ.length
+      Object.prototype.toString.call(data.organs) === "[object Array]" &&
+      data.organs.length
     ) {
-      recursiveOrgan(data.organ);
+      recursiveOrgan(data.organs);
     }
     Object.assign(state.options, data);
   },

@@ -62,7 +62,7 @@
           width="200"
         />
         <el-table-column
-          prop="organ"
+          prop="organ_name"
           label="所属机构"
         />
         <el-table-column

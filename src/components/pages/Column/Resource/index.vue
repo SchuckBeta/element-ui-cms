@@ -53,18 +53,8 @@
           width="60"
         />
         <el-table-column
-          sortable="custom"
-          prop="order"
-          label="顺序"
-          width="90"
-        />
-        <el-table-column
-          prop="title"
+          prop="resource_title"
           label="标题"
-        />
-        <el-table-column
-          prop="subtitle"
-          label="副标题"
         />
         <el-table-column
           :filter-multiple="false"
@@ -76,33 +66,6 @@
         >
           <template slot-scope="scope">
             {{listScope.getTextByValue(filters.resource_type,scope.row.resource_type,'value')}}
-          </template>
-        </el-table-column>
-        <el-table-column
-          prop="cover"
-          label="封面"
-          width="100">
-          <template slot-scope="scope">
-            <img :src="scope.row.cover"/>
-          </template>
-        </el-table-column>
-        <el-table-column
-          sortable="custom"
-          prop="updated_time"
-          label="更新时间"
-          width="109"
-          show-overflow-tooltip
-        />
-        <el-table-column
-          :filter-multiple="false"
-          :filters="filters.status"
-          column-key="status"
-          prop="status"
-          label="状态"
-          width="90"
-        >
-          <template slot-scope="scope">
-            <list-item-boolean-edit :item="scope.row" :edit="edit" options-key="visible" options-key-btn="visible"/>
           </template>
         </el-table-column>
         <el-table-column
@@ -125,18 +88,13 @@
 <script>
 import MixinList from "@/mixins/list";
 
-// import QueryFormDateRange from '@/components/common/QueryFormDateRange'
-import ListItemBooleanEdit from "@/components/common/ListItemBooleanEdit";
-
 export default {
   // 如需组件名, 组件名由目录名和文件名构成, 帕斯卡命名法, 示例 name: 'DirectoryFile'
   mixins: [MixinList],
-  components: { ListItemBooleanEdit },
+  components: {},
   inheritAttrs: false,
   data() {
-    return {
-      //        api: require(`@/api/column/${this.$route.path.replace(/^\/(\w+)_column.*/, '$1')}`).default
-    };
+    return {};
   },
   // 可以在computed对象内覆写MixinList的computed相关属性, 比如 apiList, apiListParamsKey
   computed: {

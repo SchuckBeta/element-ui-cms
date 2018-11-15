@@ -14,33 +14,23 @@
     </el-autocomplete>
     <div><span>ID：</span><span>{{user.id}}</span></div>
     <div><span>姓名：</span><span>{{user.name}}</span></div>
-    <div><span>所属机构：</span><span>{{user.organ}}</span></div>
+    <div><span>所属机构：</span><span>{{user.organ_name}}</span></div>
     <div><span>手机号：</span><span>{{user.phone}}</span></div>
   </div>
 </template>
 <script>
-import apiCommon from "@/api/common";
+import api from "@/api/user";
 
 const defaultObj = {
   id: "",
   // 姓名
   name: "",
-  // 所属机构, 这里直接返回机构title
-  organ: "",
+  // 所属机构
+  organ_name: "",
   // 手机号
   phone: "",
-  // 职级
-  rank: "",
-  // 职务
-  job: "",
-  // 性别
-  gender: "",
-  // 民族
-  nation: "",
   // 邮箱
   email: "",
-  // 身份证号
-  NRIC: "",
   // 用户状态
   status: ""
 };
@@ -81,7 +71,7 @@ export default {
   },
   methods: {
     async fetchSuggestions(queryString, cb) {
-      const res = await apiCommon.fn.user({ search: queryString });
+      const res = await api.fn.list({ search: queryString });
       let data = res.data && res.data.results;
       if (
         Object.prototype.toString.call(data) === "[object Array]" &&
