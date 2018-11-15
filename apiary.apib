@@ -300,6 +300,46 @@ FORMAT: 1A
         
 + Response 200 (application/json)
 
+# Group Column
+
+## Column [/api/cms/column/{type}/{id}/]
+
++ Parameters
+    + type
+    + id: 1 (number)
+    
++ Attributes
+    + id: 1 (number)
+    + title: 栏目1 
+    + child_resource_type: 1 (number)    
+    + status: 1 (number)    
+
+## Columns Collection [/api/cms/column/{type}/{?limit,offset,search,ids}]
+
++ Parameters
+    + type
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Column])
+        
+### Retrieve Columns [GET]
+
++ Response 200 (application/json)
+    + Attributes (Columns Collection)
+
+## Update Columns [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
 
 # Group About
     
