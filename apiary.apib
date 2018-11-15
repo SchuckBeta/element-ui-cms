@@ -72,7 +72,6 @@ FORMAT: 1A
              "phone": 11111111111,
              "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
              "organ": "Pan Organ",           
-             "current_role_id": 1,
              "groups": [
                   {
                     "id": 1,
@@ -104,11 +103,15 @@ FORMAT: 1A
                         "title": "系统管理",
                         "children": [ 
                           {
-                            "title": "CMS角色",
+                            "title": "管理员",
+                            "path": "/administrator"
+                          },
+                          {
+                            "title": "角色",
                             "path": "/role"
                           },
                           {
-                            "title": "CMS用户",
+                            "title": "用户",
                             "path": "/user"
                           } 
                         ]
@@ -318,72 +321,6 @@ FORMAT: 1A
 
 + Response 200 (application/json)
 
-# Group Role
-
-## Role Menus [GET /api/cms/role/menus/]
-
-+ Response 200 (application/json)
-    + Attributes
-        + count: 1 (number)
-        + results (array[Menu])
-
-## Role [/api/cms/role/{id}/]
-
-+ Parameters
-    + id: 1 (number)
-    
-### Retrieve Role [GET]
-
-+ Response 200 (application/json)
-    + Attributes (Role)
-    
-### Update Role [PATCH]
-
-+ Response 200 (application/json)
-
-### Delete Role [DELETE]
-
-+ Response 200 (application/json)
-
-## Roles Collection [/api/cms/role/{?limit,offset,search,ids}]
-
-+ Parameters
-    + limit
-    + offset
-    + search
-    + ids
-    
-+ Attributes
-    + count: 1 (number)
-    + results (array[Role])
-    
-### Create Role [POST]
-
-+ Response 200 (application/json)    
-
-### Retrieve Roles [GET]
-
-+ Response 200 (application/json)
-    + Attributes (Roles Collection)
-
-## Update Roles [PATCH]
-    
-+ Request (application/json)
-    + Headers
-        
-            X-BULK-OPERATION: true
-        
-+ Response 200 (application/json)
-
-## Delete Roles [DELETE]
-    
-+ Request (application/json)
-    + Headers
-        
-            X-BULK-OPERATION: true
-        
-+ Response 200 (application/json)
-
 # Group User
 
 ## User [/api/cms/user/{id}/]
@@ -442,6 +379,138 @@ FORMAT: 1A
 + Response 200 (application/json)
 
 ## Delete Users [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+# Group administrator
+
+## Administrator [/api/cms/administrator/{id}/]
+
++ Parameters
+    + id: 1 (number)
+    
++ Attributes (object)
+    + id: 1 (number)
+    + name: panhezeng
+    + organ: `Pan Organ`
+    + groups (array[Role])
+    + is_active: 1
+         
+### Retrieve Administrator [GET]
+
++ Response 200 (application/json)
+    + Attributes (Administrator)
+    
+### Update Administrator [PATCH]
+
++ Response 200 (application/json)
+
+### Delete Administrator [DELETE]
+
++ Response 200 (application/json)
+
+## Administrators Collection [/api/cms/administrator/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Administrator])
+    
+### Create Administrators [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Administrators [GET]
+
++ Response 200 (application/json)
+    + Attributes (Users Collection)
+
+## Update Administrators [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Administrators [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+# Group Role
+
+## Role Menus [GET /api/cms/role/menus/]
+
++ Response 200 (application/json)
+    + Attributes
+        + count: 1 (number)
+        + results (array[Menu])
+
+## Role [/api/cms/role/{id}/]
+
++ Parameters
+    + id: 1 (number)
+    
+### Retrieve Role [GET]
+
++ Response 200 (application/json)
+    + Attributes (Role)
+    
+### Update Role [PATCH]
+
++ Response 200 (application/json)
+
+### Delete Role [DELETE]
+
++ Response 200 (application/json)
+
+## Roles Collection [/api/cms/role/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Role])
+    
+### Create Role [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Roles [GET]
+
++ Response 200 (application/json)
+    + Attributes (Roles Collection)
+
+## Update Roles [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Roles [DELETE]
     
 + Request (application/json)
     + Headers
