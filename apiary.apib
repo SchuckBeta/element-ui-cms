@@ -43,6 +43,7 @@ FORMAT: 1A
 
         {
             "permissions": [{"text": "审核权限", "value": 1000}],
+            "organs": [{"id": 1, "title": "Pan Organ"}],
             "resource_type": [
               {
                 "text": "课程",
@@ -71,7 +72,7 @@ FORMAT: 1A
              "email": "panhezeng@gmail.com",
              "phone": 11111111111,
              "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
-             "organ": "Pan Organ",           
+             "organ_name": "Pan Organ",           
              "groups": [
                   {
                     "id": 1,
@@ -331,7 +332,10 @@ FORMAT: 1A
 + Attributes (object)
     + id: 1 (number)
     + name: panhezeng
-    + organ: `Pan Organ`
+    + organ_name: `Pan Organ`
+    + organ_id: 1 (number)
+    + organ_id_path (array)
+        + 1 (number)
     + email: panhezeng@gmail.com,
     + phone: 11111111111,
     + avatar: http://dummyimage.com/200x100/50B347/FFF&text=panhezeng,    
