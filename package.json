@@ -1,0 +1,75 @@
+{
+  "name": "element-ui-cms",
+  "version": "1.0.0",
+  "description": "A Vue.js CMS project",
+  "author": "潘何增 <panhezeng@gmail.com> (http://apsay.com/)",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "vuejs",
+    "element-ui",
+    "CMS"
+  ],
+  "homepage": "https://github.com/panhezeng/element-ui-cms.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panhezeng/element-ui-cms.git"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "server:mock": "ws --config-file server/config.mock.js",
+    "server:prod": "npm run build && ws --config-file server/config.prod.js",
+    "server:example": "npm run build && node server/build.example.js && ws --config-file server/config.prod.example.js",
+    "apib2swagger": "npx apib2swagger -i apiary.apib -o swagger.json && npx swagger2openapi swagger.json -o swagger.json"
+  },
+  "dependencies": {
+    "@panhezeng/el-multiple-upload": "latest",
+    "@panhezeng/el-popover-dialog": "latest",
+    "@panhezeng/el-select-remote-multiple": "latest",
+    "@panhezeng/el-single-upload": "latest",
+    "@panhezeng/el-tinymce": "latest",
+    "@panhezeng/utils": "latest",
+    "@panhezeng/vue-axios": "latest",
+    "@panhezeng/vue-event-hub": "latest",
+    "cos-js-sdk-v5": "latest",
+    "element-ui": "latest",
+    "vue": "latest",
+    "vue-echarts": "latest",
+    "vue-i18n": "latest",
+    "vue-router": "latest",
+    "vuex": "latest"
+  },
+  "devDependencies": {
+    "local-web-server": "latest",
+    "@vue/cli-plugin-babel": "^3.1.1",
+    "@vue/cli-plugin-eslint": "^3.1.5",
+    "@vue/cli-service": "^3.1.4",
+    "@vue/eslint-config-prettier": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-component": "^1.1.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0-0",
+    "html-webpack-include-assets-plugin": "^1.0.6",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "lint-staged": "^7.2.2",
+    "vue-cli-plugin-element": "^1.0.0",
+    "vue-template-compiler": "^2.5.17",
+    "svg-sprite-loader": "latest"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
