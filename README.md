@@ -3,26 +3,13 @@
 ```bash
 .
 ├── README.md     # 文档
-├── build    # 编译构建文件
-│   ├── build.js    # 用于生成生产部署文件
-│   ├── check-versions.js
-│   ├── example.js    # 用于生成示例部署文件
-│   ├── logo.png
-│   ├── utils.js
-│   ├── vue-loader.conf.js
-│   ├── webpack.base.conf.js
-│   ├── webpack.dev.conf.js
-│   └── webpack.prod.conf.js
-├── config    # 编译构建文件
-│   ├── dev.env.js
-│   ├── index.js
-│   └── prod.env.js
 ├── dist    # 生产部署文件
 ├── docs    # 示例部署文件
-├── index.html    # 入口页的HTML模板文件
-├── jsconfig.json    # 用于VSCodeIDE智能提示的配置文件
-├── package.json
+├── public
+│   ├── index.html    # 入口页的HTML模板文件
+│   └── favicon.ico
 ├── server    # local-web-server配置文件
+│   ├── build.example.js    # 编译示例文件
 │   ├── config.mock.js    # mock接口
 │   ├── config.prod.example.js    # 示例
 │   ├── config.prod.js    # 生产
@@ -52,9 +39,12 @@
 │       ├── init    # 初始化组件和插件
 │       ├── load-component    # 加载组件方法
 │       └── index.js
-└── static
-    └── img
-        └── favicon.ico
+├── tool # 软件工具相关安装文件
+├── vue.config.js    # vue cli项目配置文件
+├── jsconfig.json    # 用于VSCodeIDE智能提示的配置文件
+├── apiary.apib     # 接口文档
+├── package.json
+└── README.md
 ```
 
 ## 阐述

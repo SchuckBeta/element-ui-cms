@@ -1,0 +1,539 @@
+FORMAT: 1A
+
+# element-ui-cms
+
+# Group Common
+
+## Cos [/cos/cms/{file}]
+
+### OPTIONS
+
++ Response 200 (application/json)
+    
+### PUT
+
++ Response 200 (application/json)
+
+## Search [GET /api/cms/search/{?word,type}]
+
++ Parameters
+    + word
+    + type
+
++ Response 200 (application/json)
+
+        {
+            "course": {
+                "count": 1,
+                "results": [
+                    {
+                        "id": 1,
+                        "title": "课程1",
+                        "resource_type": 1,
+                        "is_active": 1,
+                        "status": 1
+                    }
+                ]
+              }
+        }  
+        
+## Options [GET /api/cms/options/]
+
++ Response 200 (application/json)
+
+        {
+            "permissions": [{"text": "审核权限", "value": 1000}],
+            "resource_type": [
+              {
+                "text": "课程",
+                "value": 1,
+                "key":"course"
+              }
+            ]
+        }        
+        
+## Todos [GET /api/cms/todos/]
+
++ Response 200 (application/json)
+
+        []        
+        
+# Group Account
+
+## Account [/api/cms/account/]
+
++ Model (application/json)
+
+        {
+             "token": "panhezeng.token",
+             "id": "1",
+             "name": "panhezeng",
+             "email": "panhezeng@gmail.com",
+             "phone": 11111111111,
+             "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+             "organ": "Pan Organ",           
+             "groups": [
+                  {
+                    "id": 1,
+                    "name": "超级管理员",
+                    "is_review": 1,
+                    "menus": [
+                      {
+                        "title": "网站内容管理",
+                        "children": [
+                          {
+                            "title": "公告",
+                            "path": "/announcement"
+                          },
+                          {
+                            "title": "轮播",
+                            "path": "/banner"
+                          },
+                          {
+                            "title": "推荐栏目",
+                            "path": "/web_column"
+                          },
+                          {
+                            "title": "网站介绍",
+                            "path": "/about"
+                          }
+                        ]
+                      },
+                      {
+                        "title": "系统管理",
+                        "children": [ 
+                          {
+                            "title": "管理员",
+                            "path": "/administrator"
+                          },
+                          {
+                            "title": "角色",
+                            "path": "/role"
+                          },
+                          {
+                            "title": "用户",
+                            "path": "/user"
+                          } 
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": 2,
+                    "name": "网站内容管理员"
+                  } 
+             ]
+        }
+
+### GET
+
++ Response 200
+
+    [Account][]
+    
+### PATCH
+
++ Response 200
+
+    [Account][]    
+
+## Login [POST /api/cms/login/]
+
++ Request (application/json)
+
+        {
+          "username": "panhezeng",
+          "password": "panhezeng"
+        }
+
++ Response 200
+
+    [Account][]
+
+# Group Announcement
+
+## Announcement [/api/cms/announcement/{id}/]
+
++ Parameters
+    + id: 1 (number)
+    
++ Attributes (object)
+    + id: 1 (number)
+    + title: title
+    + type: 1 (number)
+    + top: 1 (number)
+    + status: 1 (number)
+    + content: content
+    + attachment (array)
+    + creator: creator
+    + created_time: `1980-09-02 00:00:00`
+    + updated_time: `1980-09-02 00:00:00`  
+    
+         
+### Retrieve Announcement [GET]
+
++ Response 200 (application/json)
+    + Attributes (Announcement)
+    
+### Update Announcement [PATCH]
+
++ Response 200 (application/json)
+
+### Delete Announcement [DELETE]
+
++ Response 200 (application/json)
+
+## Announcements Collection [/api/cms/announcement/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Announcement])
+    
+### Create Announcement [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Announcements [GET]
+
++ Response 200 (application/json)
+    + Attributes (Announcements Collection)
+
+## Update Announcements [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Announcements [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+# Group Banner
+
+## Banner [/api/cms/banner/{id}/]
+
++ Parameters
+    + id: 1 (number)
+    
++ Attributes (object)
+    + id: 1 (number)
+    + title: title
+    + picture: `http://dummyimage.com/200x100/50B347/FFF&text=panhezeng`
+    + link_type: 1 (number)
+    + url
+    + resource (Resource)
+    + resource_type: 1 (number)
+    + resource_id: 1 (number)
+    + order: 1 (number)
+    + client: 1 (number)
+    + status: 1 (number)
+    + content: content
+    + creator: creator
+    + created_time: `1980-09-02 00:00:00`
+    + updated_time: `1980-09-02 00:00:00`  
+    
+         
+### Retrieve Banner [GET]
+
++ Response 200 (application/json)
+    + Attributes (Banner)
+    
+### Update Banner [PATCH]
+
++ Response 200 (application/json)
+
+### Delete Banner [DELETE]
+
++ Response 200 (application/json)
+
+## Banners Collection [/api/cms/banner/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Banner])
+    
+### Create Banner [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Banners [GET]
+
++ Response 200 (application/json)
+    + Attributes (Banners Collection)
+
+## Update Banners [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Banners [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+
+# Group About
+    
+## About [/api/cms/about/{id}/]
+
++ Parameters
+    + id: 1 (number)
+
+### Retrieve About [GET]
+
++ Response 200 (application/json)
+
+        {
+            "about":"web site about",
+            "contact":"email: panhezeng@gmail.com",
+            "logo":"http://dummyimage.com/200x100/50B347/FFF&text=panhezeng"
+        }
+                   
+### Update About [PATCH]
+
++ Response 200 (application/json)
+
+# Group User
+
+## User [/api/cms/user/{id}/]
+
++ Parameters
+    + id: 1 (number)
+    
++ Attributes (object)
+    + id: 1 (number)
+    + name: panhezeng
+    + organ: `Pan Organ`
+    + email: panhezeng@gmail.com,
+    + phone: 11111111111,
+    + avatar: http://dummyimage.com/200x100/50B347/FFF&text=panhezeng,    
+    + groups (array[Role])
+    + status: 1 (number)
+         
+### Retrieve User [GET]
+
++ Response 200 (application/json)
+    + Attributes (User)
+    
+### Update User [PATCH]
+
++ Response 200 (application/json)
+
+### Delete User [DELETE]
+
++ Response 200 (application/json)
+
+## Users Collection [/api/cms/user/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[User])
+    
+### Create Users [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Users [GET]
+
++ Response 200 (application/json)
+    + Attributes (Users Collection)
+
+## Update Users [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Users [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+# Group administrator
+
+## Administrator [/api/cms/administrator/{id}/]
+
++ Parameters
+    + id: 1 (number)
+    
+### Retrieve Administrator [GET]
+
++ Response 200 (application/json)
+    + Attributes (User)
+    
+### Update Administrator [PATCH]
+
++ Response 200 (application/json)
+
+### Delete Administrator [DELETE]
+
++ Response 200 (application/json)
+
+## Administrators Collection [/api/cms/administrator/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[User])
+    
+### Create Administrators [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Administrators [GET]
+
++ Response 200 (application/json)
+    + Attributes (Users Collection)
+
+## Update Administrators [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Administrators [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+# Group Role
+
+## Role Menus [GET /api/cms/role/menus/]
+
++ Response 200 (application/json)
+    + Attributes
+        + count: 1 (number)
+        + results (array[Menu])
+
+## Role [/api/cms/role/{id}/]
+
++ Parameters
+    + id: 1 (number)
+    
+### Retrieve Role [GET]
+
++ Response 200 (application/json)
+    + Attributes (Role)
+    
+### Update Role [PATCH]
+
++ Response 200 (application/json)
+
+### Delete Role [DELETE]
+
++ Response 200 (application/json)
+
+## Roles Collection [/api/cms/role/{?limit,offset,search,ids}]
+
++ Parameters
+    + limit
+    + offset
+    + search
+    + ids
+    
++ Attributes
+    + count: 1 (number)
+    + results (array[Role])
+    
+### Create Role [POST]
+
++ Response 200 (application/json)    
+
+### Retrieve Roles [GET]
+
++ Response 200 (application/json)
+    + Attributes (Roles Collection)
+
+## Update Roles [PATCH]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+## Delete Roles [DELETE]
+    
++ Request (application/json)
+    + Headers
+        
+            X-BULK-OPERATION: true
+        
++ Response 200 (application/json)
+
+# Data Structures
+
+## Resource (object)
++ title: 课程1
+
+## Menu (object)
++ id: 1 (number)
++ title: 网站内容管理
++ children (array)
+    + (object)
+        + id: 2 (number)
+        + title: 公告
+        
+## Role (object)
++ id: 1 (number)
++ name: 超级管理员
++ permissions (array)
+    + 1 (number)
+    + 2 (number)        
+    + 1000 (number)        
++ menus (array[Menu])
++ is_review: 1 (number)
