@@ -310,18 +310,22 @@ FORMAT: 1A
     
 + Attributes
     + id: 1 (number)
-    + title: 栏目1 
+    + title: 课程推荐 
     + child_resource_type: 1 (number)    
-    + status: 1 (number)    
+    + status: 1 (number)
+    + resource_id: 1 (number)
+    + resource_title: 课程1
 
-## Columns Collection [/api/cms/column/{type}/{?limit,offset,search,ids}]
+## Columns Collection [/api/cms/column/{type}/{?limit,offset,search,ids,resource_type,pid}]
 
 + Parameters
-    + type
+    + type: web
     + limit
     + offset
     + search
     + ids
+    + resource_type
+    + pid
     
 + Attributes
     + count: 1 (number)
