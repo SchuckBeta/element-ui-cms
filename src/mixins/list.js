@@ -2,7 +2,6 @@ import { pages, pagesByPath } from "@/store/config/pages";
 import PageContent from "@/components/common/PageContent";
 import PageList from "@/components/common/PageList";
 import PageListActionBtn from "@/components/common/PageListActionBtn";
-import { Message } from "element-ui";
 import apiCommon from "@/api/common";
 import MixinOption from "@/mixins/options";
 
@@ -97,7 +96,12 @@ export default {
             }
           });
         }
-        Message({ message: "批量编辑成功", type: "success" });
+        this.$message({
+          message: this.$t("message.success.batch", {
+            action: this.$t("action.edit")
+          }),
+          type: "success"
+        });
       } catch (e) {
         console.error(e);
       }

@@ -9,7 +9,7 @@
         :btn-txt="$t('action.delete')"
         @confirm="delConfirm" v-if="delShow"/>
       <el-button type="text" @click="toEditItem()" v-if="editShow">{{$t('action.edit')}}</el-button>
-      <el-button type="text" @click="toEditItem({disabled:1,view:1})" v-if="viewShow">{{$t('action.view')}}</el-button>
+      <el-button type="text" @click="toEditItem({disabled:1,details:1})" v-if="detailsShow">{{$t('action.details')}}</el-button>
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@ export default {
       type: Boolean,
       default: true
     },
-    viewShow: {
+    detailsShow: {
       type: Boolean,
       default: false
     }

@@ -2,70 +2,65 @@
   <div class="resource-search-save-list">
     <div class="header">
       <resource-search v-bind="$attrs" :resource.sync="resource"/>
-      <el-button class="add" @click="add" v-if="!$attrs.disabled">添加</el-button>
+      <el-button class="add" @click="add" v-if="!$attrs.disabled">{{$t('action.add')}}</el-button>
     </div>
-    <h4 class="list-title">已选资源列表</h4>
+    <h4 class="list-title">{{$t('page.list.listOfSelectedResources')}}</h4>
     <el-table ref="listTable"
               :data="list"
     >
       <el-table-column
         prop="order"
-        label="顺序"
+        :label="$t('page.list.order')"
+        width="60"
       />
       <el-table-column
         prop="id"
-        label="资源ID"
+        :label="$t('page.list.id')"
+        width="60"
       />
       <el-table-column
         prop="title"
-        label="资源名称"
+        :label="$t('page.list.title')"
       />
       <el-table-column
         prop="resource_type"
-        label="资源类型"
+        :label="$t('page.list.type')"
+        width="90"
       >
         <template slot-scope="scope">
           {{getTextByValue(options.resource_type,scope.row.resource_type,'value')}}
         </template>
       </el-table-column>
       <el-table-column
-        prop="learning_hour"
-        label="学时"
-        v-if="courseOnly"
-      />
-      <el-table-column
-        prop="platform_name"
-        label="开课单位"
-        v-if="courseOnly"
+              prop="creator"
+              :label="$t('page.list.creator')"
+              width="120"
       />
       <el-table-column
         prop="updated_time"
-        label="更新时间"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="creator_name"
-        label="创建者"
-      >
-      </el-table-column>
+        :label="$t('page.list.updatedTime')"
+        width="159"
+        show-overflow-tooltip
+      />
       <el-table-column
         fixed="right"
-        label="操作"
+        :label="$t('page.list.action')"
+        width="105"
       >
         <template slot-scope="scope">
           <div>
             <el-button type="text"
                        @click="move(scope.row, scope.$index, true)"
-                       v-if="scope.$index">上移
+                       v-if="scope.$index">{{$t('action.moveUp')}}
             </el-button>
             <el-button type="text"
                        @click="move(scope.row, scope.$index, false)"
-                       v-if="scope.$index<(list.length-1)">下移
+                       v-if="scope.$index<(list.length-1)">{{$t('action.moveDown')}}
             </el-button>
           </div>
           <div>
-            <el-button type="text" @click="to(scope.row)">详情</el-button>
-            <el-button type="text" @click="del(scope.$index)">删除</el-button>
+            <el-button type="text" @click="to(scope.row)">{{$t('action.details')}}</el-button>
+            <el-button type="text" @click="del(scope.$index)">{{$t('action.delete')}}</el-button>
           </div>
         </template>
       </el-table-column>
@@ -80,7 +75,7 @@ import ResourceType from "@/store/config/resource-type";
 import ResourceSearch from "@/components/common/ResourceSearch";
 
 export default {
-  name: "ResourceSearchSaveList",
+  name: "ResourceSearchSelectedList",
   components: { ResourceSearch },
   inheritAttrs: false,
   props: {
@@ -132,7 +127,10 @@ export default {
         window.open(`${path}?id=${query.id}&disabled=${query.disabled}`);
         //          this.$router.push({path, query})
       } else {
-        this.$message({ message: "该资源没有详情页", type: "warning" });
+        this.$message({
+          message: this.$t("message.warning.noDetails"),
+          type: "warning"
+        });
       }
     },
     add() {
@@ -143,7 +141,10 @@ export default {
             item.resource_type === this.resource.resource_type
         )
       ) {
-        this.$message({ message: "该资源已添加，请重新选择", type: "warning" });
+        this.$message({
+          message: this.$t("message.warning.added"),
+          type: "warning"
+        });
       } else {
         this.list.push({
           order: this.list.length,
@@ -152,10 +153,8 @@ export default {
           // 上面是后端入库需要的数据，下面是前端显示需要的数据
           id: this.resource.id,
           title: this.resource.title,
-          learning_hour: this.resource.learning_hour,
-          platform_name: this.resource.platform_name,
           updated_time: this.resource.updated_time,
-          creator_name: this.resource.creator_name
+          creator: this.resource.creator
         });
       }
       this.resource = null;

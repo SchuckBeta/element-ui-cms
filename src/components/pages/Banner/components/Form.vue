@@ -23,7 +23,7 @@
                   class="single-upload-form-item">
       <single-upload :url.sync="formData.picture" :disabled="disabled"/>
     </el-form-item>
-    <el-form-item label="跳转页面" prop="link_type" :rules="formRules.required">
+    <el-form-item :label="$t('page.list.link')" prop="link_type" :rules="formRules.required">
       <el-radio-group v-model="formData.link_type" @change="clearValidate($refs['form'],['url','resource_id'])">
         <el-radio v-for="item in options.link_type" :key="item.value" :label="item.value">{{item.text}}</el-radio>
       </el-radio-group>
@@ -31,7 +31,7 @@
     <el-form-item label="" prop="url" :rules="formRules.url" v-if="formData.link_type===0">
       <el-input v-model="formData.url"/>
     </el-form-item>
-    <el-form-item label="资源选择" prop="resource_id" :rules="formRules.noFalse" v-else>
+    <el-form-item :label="$t('page.list.selectResource')"  prop="resource_id" :rules="formRules.noFalse" v-else>
       <resource-search :disabled="disabled"
                        :type.sync="formData.resource_type"
                        :id.sync="formData.resource_id"
@@ -83,8 +83,8 @@ export default {
   methods: {
     // 如果要取消默认提交行为，则return Promise.reject(new Error())
     async beforeSubmit() {
-      if (this.formData.source_type) {
-        this.formData.link = "";
+      if (this.formData.link_type) {
+        this.formData.url = "";
       } else {
         this.formData.resource = {};
         this.formData.resource_id = 0;

@@ -3,17 +3,17 @@
   <el-form class="form-add-edit" label-width="120px"
            :model="formData" :rules="formRules" ref="form" :disabled="disabled">
     <div class="el-form-item" v-if="id">
-      <label class="el-form-item__label" style="width: 120px;">用户信息</label>
+      <label class="el-form-item__label" style="width: 120px;">{{$t('page.list.userInfo')}}</label>
       <div class="el-form-item__content" style="margin-left: 120px;">
         <user-search :user="formData" :visible="false"/>
       </div>
     </div>
-    <el-form-item label="用户搜索" prop="id" :rules="formRules.required" v-else>
+    <el-form-item :label="$t('action.search')" prop="id" :rules="formRules.required" v-else>
       <user-search :user="formData" :visible="true"/>
     </el-form-item>
-    <el-form-item label="角色" prop="groups" :rules="formRules.required">
-      <el-button size="mini" @click="selectionAll">全选</el-button>
-      <el-button size="mini" @click="clearSelection">取消选择</el-button>
+    <el-form-item :label="$t('page.list.role')" prop="groups" :rules="formRules.required">
+      <el-button size="mini" @click="selectionAll">{{$t('action.selectAll')}}</el-button>
+      <el-button size="mini" @click="clearSelection">{{$t('action.cancel')}}</el-button>
       <el-table
         ref="multipleTable"
         :data="groupsAll"

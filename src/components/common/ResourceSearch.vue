@@ -11,7 +11,7 @@
     v-bind="$attrs"
   >
     <span class="resource-type-lock" slot="prepend" v-if="lockType">{{selectedType.text}}</span>
-    <el-select class="resource-type" slot="prepend" placeholder="请选择"
+    <el-select class="resource-type" slot="prepend" :placeholder="$t('action.pleaseSelect')"
                v-model="resourceType" @change="selectedTypeUpdate"
                v-bind="$attrs"
                v-else>

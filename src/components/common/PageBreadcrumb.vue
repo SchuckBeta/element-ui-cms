@@ -58,9 +58,9 @@ export default {
   beforeDestroy() {},
   methods: {
     breadcrumbTitle(title) {
-      if (this.$route.query.view && this.$route.path.includes("edit")) {
+      if (this.$route.query.details && this.$route.path.includes("edit")) {
         return (
-          title.replace(this.$t("action.edit"), "") + this.$t("action.view")
+          title.replace(this.$t("action.edit"), "") + this.$t("action.details")
         );
       }
       return title;

@@ -1,60 +1,62 @@
 <template>
-  <div class="page-list" v-loading="loading" :element-loading-text="$t('loading')">
-    <slot name="head-content"></slot>
-    <el-form class="page-list-query-form" size="mini" :inline="true"
-             :model="queryForm" ref="queryForm" v-if="queryFormShow">
-      <slot name="query-form" :form-data="queryForm" :collapse="collapse" :list="list"/>
-      <el-form-item :class="`form-item-btn${(collapse && !collapse)?' expand':''}`">
-        <el-button size="mini" @click="resetQueryForm">{{$t('action.reset')}}</el-button>
-        <el-button size="mini" type="primary" @click="submitQueryForm">{{$t('action.query')}}</el-button>
-        <template v-if="collapseForm">
-          <el-button type="text" @click="collapse=false" v-if="collapse">{{$t('action.expand')}}<i
-            class="el-icon-arrow-down"></i></el-button>
-          <el-button type="text" @click="collapse=true" v-else>{{$t('action.collapse')}}<i class="el-icon-arrow-up"></i>
-          </el-button>
-        </template>
-      </el-form-item>
-    </el-form>
-    <div class="header-btn" v-if="headerBtn">
-      <slot name="header-refresh-btn-before"/>
-      <el-button class="refresh-btn" size="mini" @click="fetchData" v-if="headerBtnRefresh">{{$t('action.refresh')}}
-      </el-button>
-      <slot name="header-btn"/>
-      <template v-if="headerBtnBatch">
-        <slot name="header-batch-btn" :multiple-selection="multipleSelection" :list="list"/>
-        <el-popover-dialog
-          :popover-content="$t('modal.delete')"
-          :cancel-button-text="$t('action.cancel')"
-          :confirm-button-text="$t('action.confirm')"
-          :btn-txt="$t('action.batch', { action: $t('action.delete') })"
-          :disabled="multipleSelection.length===0"
-          btn-size="mini" btn-type="danger" btn-style=""
-          @confirm="batchDelItem" v-if="headerBtnBatchDel"/>
-      </template>
-      <slot name="header-add-btn-before"/>
-      <el-button size="mini" type="primary" @click="toAddItem" v-if="headerBtnAddShow">{{$t('action.add')}}
-      </el-button>
-      <slot name="header-add-btn-after"/>
-    </div>
+    <div class="page-list" v-loading="loading" :element-loading-text="$t('loading')">
+        <slot name="head-content"></slot>
+        <el-form class="page-list-query-form" size="mini" :inline="true"
+                 :model="queryForm" ref="queryForm" v-if="queryFormShow">
+            <slot name="query-form" :form-data="queryForm" :collapse="collapse" :list="list"/>
+            <el-form-item :class="`form-item-btn${(collapse && !collapse)?' expand':''}`">
+                <el-button size="mini" @click="resetQueryForm">{{$t("action.reset")}}</el-button>
+                <el-button size="mini" type="primary" @click="submitQueryForm">{{$t("action.query")}}</el-button>
+                <template v-if="collapseForm">
+                    <el-button type="text" @click="collapse=false" v-if="collapse">{{$t("action.expand")}}<i
+                            class="el-icon-arrow-down"></i></el-button>
+                    <el-button type="text" @click="collapse=true" v-else>{{$t("action.collapse")}}<i
+                            class="el-icon-arrow-up"></i>
+                    </el-button>
+                </template>
+            </el-form-item>
+        </el-form>
+        <div class="header-btn" v-if="headerBtn">
+            <slot name="header-refresh-btn-before"/>
+            <el-button class="refresh-btn" size="mini" @click="fetchData" v-if="headerBtnRefresh">
+                {{$t("action.refresh")}}
+            </el-button>
+            <slot name="header-btn"/>
+            <template v-if="headerBtnBatch">
+                <slot name="header-batch-btn" :multiple-selection="multipleSelection" :list="list"/>
+                <el-popover-dialog
+                        :popover-content="$t('modal.delete')"
+                        :cancel-button-text="$t('action.cancel')"
+                        :confirm-button-text="$t('action.confirm')"
+                        :btn-txt="$t('action.batch', { action: $t('action.delete') })"
+                        :disabled="multipleSelection.length===0"
+                        btn-size="mini" btn-type="danger" btn-style=""
+                        @confirm="batchDelItem" v-if="headerBtnBatchDel"/>
+            </template>
+            <slot name="header-add-btn-before"/>
+            <el-button size="mini" type="primary" @click="toAddItem" v-if="headerBtnAddShow">{{$t("action.add")}}
+            </el-button>
+            <slot name="header-add-btn-after"/>
+        </div>
 
-    <slot name="list" :list="list"
-          :filter-change="handleFilterChange"
-          :filter-method="handleFilter"
-          :sort-change="handleSortChange"
-          :selection-change="handleSelectionChange"
-          :get-text-by-value="getTextByValue"
-          :get-tree-option-by-value="getTreeOptionByValue"
-    />
-    <el-pagination
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :current-page="queryData.page"
-      :page-sizes="pageSizes"
-      :page-size="queryData.limit"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="queryData.total" v-if="paginationShow"/>
-    <slot/>
-  </div>
+        <slot name="list" :list="list"
+              :filter-change="handleFilterChange"
+              :filter-method="handleFilter"
+              :sort-change="handleSortChange"
+              :selection-change="handleSelectionChange"
+              :get-text-by-value="getTextByValue"
+              :get-tree-option-by-value="getTreeOptionByValue"
+        />
+        <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="queryData.page"
+                :page-sizes="pageSizes"
+                :page-size="queryData.limit"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="queryData.total" v-if="paginationShow"/>
+        <slot/>
+    </div>
 </template>
 <script>
 import EventTypes from "@/store/config/event-types";
@@ -129,6 +131,8 @@ export default {
       type: Boolean,
       default: true
     },
+    // 批量删除按钮确认回调
+    headerBtnBatchDelConfirm: Function,
     // 是否显示添加按钮
     headerBtnAdd: {
       type: Boolean,
@@ -372,26 +376,34 @@ export default {
      * 批量删除
      */
     async batchDelItem() {
+      // 如果有外部传入批量删除回调，则用外部的
       if (
-        Object.prototype.toString.call(this.apiDestroyBulk) !==
+        Object.prototype.toString.call(this.headerBtnBatchDelConfirm) ===
         "[object Function]"
       ) {
-        throw new Error("apiDestroyBulk不是方法，无法执行批量删除操作");
-      }
-      try {
-        await this.apiDestroyBulk({
-          ids: this.multipleSelection.map(value => value.id).join()
-        });
-        // 删除成功后，触发重新查询列表，为了实现自动补齐每页条数等，没有采用只是前端从列表数组删除此条数据的方式
-        this.fetchData();
-        this.$message({
-          message: this.$t("message.success.batch", {
-            action: this.$t("action.delete")
-          }),
-          type: "success"
-        });
-      } catch (e) {
-        console.error(e);
+        this.headerBtnBatchDelConfirm();
+      } else {
+        if (
+          Object.prototype.toString.call(this.apiDestroyBulk) !==
+          "[object Function]"
+        ) {
+          throw new Error("apiDestroyBulk不是方法，无法执行批量删除操作");
+        }
+        try {
+          await this.apiDestroyBulk({
+            ids: this.multipleSelection.map(value => value.id).join()
+          });
+          // 删除成功后，触发重新查询列表，为了实现自动补齐每页条数等，没有采用只是前端从列表数组删除此条数据的方式
+          this.fetchData();
+          this.$message({
+            message: this.$t("message.success.batch", {
+              action: this.$t("action.delete")
+            }),
+            type: "success"
+          });
+        } catch (e) {
+          console.error(e);
+        }
       }
     },
     /**

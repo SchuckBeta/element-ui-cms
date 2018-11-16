@@ -11,13 +11,18 @@ const i18n = {
     refresh: "刷新",
     add: "添加",
     edit: "编辑",
-    view: "详情",
     delete: "删除",
+    details: "详情",
+    enable: "启用",
+    disabled: "禁用",
     batch: "批量{action}",
     cancel: "取消",
     confirm: "确定",
     reset: "重置",
     submit: "提交",
+    search: "搜索",
+    selectAll: "Select All",
+    close: "关闭",
     collapse: "收起",
     expand: "展开",
     query: "查询",
@@ -25,7 +30,9 @@ const i18n = {
     yes: "是",
     no: "否",
     on: "上线",
-    off: "下线"
+    off: "下线",
+    moveUp: "上移",
+    moveDown: "下移"
   },
   form: {
     dateRange: {
@@ -36,7 +43,8 @@ const i18n = {
     queryKeyword: {
       label: "关键字",
       placeholder: "ID、标题等"
-    }
+    },
+    suggestion: "建议"
   },
   modal: {
     delete: "确认要删除？",
@@ -46,6 +54,10 @@ const i18n = {
     success: {
       one: "{action}成功",
       batch: "批量{action}成功"
+    },
+    warning: {
+      noDetails: "没有详情",
+      added: "已添加"
     }
   },
   page: {
@@ -73,7 +85,18 @@ const i18n = {
       creator: "创建者",
       updatedTime: "更新时间",
       status: "状态",
-      action: "操作"
+      action: "操作",
+      role: "角色",
+      name: "名字",
+      organName: "机构",
+      phone: "手机号码",
+      listOfSelectedResources: "已选资源列表",
+      selectResource: "选择资源",
+      about: "关于我们",
+      contact: "联系方式",
+      logo: "Logo",
+      link: "链接",
+      userInfo: "用户信息"
     }
   }
 };

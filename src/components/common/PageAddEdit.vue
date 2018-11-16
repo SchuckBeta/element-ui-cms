@@ -1,7 +1,7 @@
 <template>
   <page-content class="page-add-edit">
     <div class="add-edit-header">
-      <el-button class="back-btn" size="mini" @click="back" v-if="backBtn">关闭</el-button>
+      <el-button class="back-btn" size="mini" @click="back" v-if="backBtn">{{$t('action.close')}}</el-button>
     </div>
     <div class="add-edit-main">
       <slot/>

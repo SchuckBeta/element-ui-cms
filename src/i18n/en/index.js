@@ -11,13 +11,18 @@ const i18n = {
     refresh: "Refresh",
     add: "Add",
     edit: "Edit",
-    view: "View",
     delete: "Delete",
+    details: "Details",
+    enable: "Enable",
+    disabled: "Disabled",
     batch: "Batch {action}",
     cancel: "Cancel",
     confirm: "Confirm",
     reset: "Reset",
     submit: "Submit",
+    search: "Search",
+    selectAll: "Select All",
+    close: "Close",
     collapse: "Collapse",
     expand: "Expand",
     query: "Query",
@@ -25,7 +30,9 @@ const i18n = {
     yes: "Yes",
     no: "No",
     on: "On",
-    off: "Off"
+    off: "Off",
+    moveUp: "Move Up",
+    moveDown: "Move Down"
   },
   form: {
     dateRange: {
@@ -36,7 +43,8 @@ const i18n = {
     queryKeyword: {
       label: "Keyword",
       placeholder: "ID, Title, Etc."
-    }
+    },
+    suggestion: "Suggestion"
   },
   modal: {
     delete: "Are you sure you want to delete?",
@@ -46,6 +54,10 @@ const i18n = {
     success: {
       one: "{action} Success",
       batch: "Batch {action} Success"
+    },
+    warning: {
+      noDetails: "No Details",
+      added: "Added"
     }
   },
   page: {
@@ -70,7 +82,17 @@ const i18n = {
       creator: "Creator",
       updatedTime: "Updated Time",
       status: "Status",
-      action: "Action"
+      action: "Action",
+      role: "Role",
+      name: "Name",
+      organName: "Organ Name",
+      phone: "Phone",
+      listOfSelectedResources: "List Of Selected Resources",
+      selectResource: "Select Resource",
+      about: "About",
+      contact: "Contact",
+      link: "Link",
+      logo: "Logo"
     }
   }
 };

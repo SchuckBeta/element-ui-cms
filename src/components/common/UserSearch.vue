@@ -12,10 +12,10 @@
     >
       <i slot="prefix" class="el-input__icon el-icon-search"></i>
     </el-autocomplete>
-    <div><span>ID：</span><span>{{user.id}}</span></div>
-    <div><span>姓名：</span><span>{{user.name}}</span></div>
-    <div><span>所属机构：</span><span>{{user.organ_name}}</span></div>
-    <div><span>手机号：</span><span>{{user.phone}}</span></div>
+    <div><span>{{$t('page.list.id')}}：</span><span>{{user.id}}</span></div>
+    <div><span>{{$t('page.list.name')}}：</span><span>{{user.name}}</span></div>
+    <div><span>{{$t('page.list.organName')}}：</span><span>{{user.organ_name}}</span></div>
+    <div><span>{{$t('page.list.phone')}}：</span><span>{{user.phone}}</span></div>
   </div>
 </template>
 <script>

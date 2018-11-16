@@ -73,9 +73,10 @@ export default {
       this[mutationsTypes.SET_TABS]({ path, remove: true });
     },
     tabTitle(tab) {
-      if (tab.query.view && tab.path.includes("edit")) {
+      if (tab.query.details && tab.path.includes("edit")) {
         return (
-          tab.title.replace(this.$t("action.edit"), "") + this.$t("action.view")
+          tab.title.replace(this.$t("action.edit"), "") +
+          this.$t("action.details")
         );
       }
       return tab.title;

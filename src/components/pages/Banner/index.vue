@@ -114,7 +114,7 @@
             <page-list-action-btn
               :route-config="routeConfig"
               :id="scope.row.id"
-              view-show
+              details-show
             >
             </page-list-action-btn>
           </template>

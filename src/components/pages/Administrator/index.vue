@@ -10,13 +10,13 @@
                :route-config="routeConfig"
                :query-form="queryForm"
                header-btn-batch
-               :headerBtnBatchDel="false"
+               :header-btn-batch-del-confirm="headerBtnBatchDelConfirm"
     >
       <!-- 如需查询表单, 在这写 <template slot="query-form" slot-scope="{formData}">表单项</template> -->
       <!-- 如需带展开功能的查询表单, template标签写上 slot-scope="{formData, collapse}" 属性 -->
       <template slot="query-form" slot-scope="{formData}">
         <el-form-item class="query-form-keyword" :label="$t('form.queryKeyword.label')" prop="search">
-          <el-input v-model="formData.search" placeholder="用户名|手机号"/>
+          <el-input v-model="formData.search" :placeholder="`${$t('page.list.name')}|${$t('page.list.phone')}`"/>
         </el-form-item>
         <!-- 如需带展开功能的查询表单, 这写展开的模板代码 <template v-if="!collapse">展开后显示的表单项</template> -->
       </template>
@@ -24,20 +24,12 @@
       <template slot="header-batch-btn" slot-scope="{multipleSelection}">
         <el-button size="mini" type="success" :disabled="multipleSelection.length===0"
                    @click="batchEdit(multipleSelection.map(value => value.id), {is_active: 1}, multipleSelection)">
-          批量开通
+          {{ $t('action.batch', { action: $t('action.enable') })}}
         </el-button>
         <el-button size="mini" type="warning" :disabled="multipleSelection.length===0"
                    @click="batchEdit(multipleSelection.map(value => value.id), {is_active: 0}, multipleSelection)">
-          批量关闭
+          {{ $t('action.batch', { action: $t('action.disabled') })}}
         </el-button>
-          <el-popover-dialog
-            :popover-content="$t('modal.delete')"
-            :cancel-button-text="$t('action.cancel')"
-            :confirm-button-text="$t('action.confirm')"
-            :btn-txt="$t('action.batch', { action: $t('action.delete') })"
-            :disabled="multipleSelection.length===0"
-            btn-size="mini" btn-type="danger" btn-style=""
-            @confirm="coustomDelete(multipleSelection)" />
       </template>
       <!-- 如需批量操作, 在el-table内第一行写上 <el-table-column type="selection" width="55" /> -->
       <el-table slot="list" ref="listTable"
@@ -53,21 +45,20 @@
         />
         <el-table-column
           prop="id"
-          label="ID"
+          :label="$t('page.list.id')"
           width="60"
         />
         <el-table-column
           prop="name"
-          label="用户名"
-          width="200"
+          :label="$t('page.list.name')"
         />
         <el-table-column
           prop="organ_name"
-          label="所属机构"
+          :label="$t('page.list.organName')"
         />
         <el-table-column
           prop="type"
-          label="角色"
+          :label="$t('page.list.role')"
         >
           <template slot-scope="scope">
             <div class="row" v-for="item in scope.row.groups" :key="item.id">{{item.name}}</div>
@@ -78,7 +69,7 @@
           :filters="filters.status"
           column-key="is_active"
           prop="is_active"
-          label="状态"
+          :label="$t('page.list.status')"
           width="90"
         >
           <template slot-scope="scope">
@@ -87,7 +78,7 @@
         </el-table-column>
         <el-table-column
           fixed="right"
-          label="操作"
+          :label="$t('page.list.action')"
           width="105"
         >
           <template slot-scope="scope">
@@ -128,13 +119,18 @@ export default {
     }
   },
   methods: {
-    async coustomDelete(multipleSelection) {
-      await this.batchEdit(
-        multipleSelection.map(value => value.id),
-        { is_staff: 0 },
-        multipleSelection
+    async headerBtnBatchDelConfirm() {
+      await this.apiUpdateBulk(
+        { ids: this.refList.multipleSelection.join() },
+        { is_staff: 0 }
       );
-      await this.refList.fetchData();
+      this.refList.fetchData();
+      this.$message({
+        message: this.$t("message.success.batch", {
+          action: this.$t("action.delete")
+        }),
+        type: "success"
+      });
     }
   }
 };

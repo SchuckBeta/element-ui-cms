@@ -1,0 +1,3188 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "element-ui-cms",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/cos/cms/{file}": {
+            "options": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "",
+                "description": "",
+                "tags": [
+                    "Common"
+                ],
+                "parameters": [
+                    {
+                        "name": "file",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "",
+                "description": "",
+                "tags": [
+                    "Common"
+                ],
+                "parameters": [
+                    {
+                        "name": "file",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/search/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "course": {
+                                                "count": 1,
+                                                "results": [
+                                                    {
+                                                        "id": 1,
+                                                        "title": "课程1",
+                                                        "resource_type": 1,
+                                                        "is_active": 1,
+                                                        "status": 1
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Search",
+                "description": "",
+                "tags": [
+                    "Common"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/options/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "permissions": [
+                                                {
+                                                    "text": "审核权限",
+                                                    "value": 1000
+                                                }
+                                            ],
+                                            "organs": [
+                                                {
+                                                    "id": 1,
+                                                    "title": "Pan Organ"
+                                                }
+                                            ],
+                                            "resource_type": [
+                                                {
+                                                    "text": "课程",
+                                                    "value": 1,
+                                                    "key": "course"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Options",
+                "description": "",
+                "tags": [
+                    "Common"
+                ]
+            }
+        },
+        "/api/cms/todos/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "response": {
+                                        "value": []
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Todos",
+                "description": "",
+                "tags": [
+                    "Common"
+                ]
+            }
+        },
+        "/api/cms/account/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "token": "panhezeng.token",
+                                            "id": "1",
+                                            "name": "panhezeng",
+                                            "email": "panhezeng@gmail.com",
+                                            "phone": 11111111111,
+                                            "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                            "organ_name": "Pan Organ",
+                                            "groups": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "超级管理员",
+                                                    "is_review": 1,
+                                                    "menus": [
+                                                        {
+                                                            "title": "网站内容管理",
+                                                            "children": [
+                                                                {
+                                                                    "title": "公告",
+                                                                    "path": "/announcement"
+                                                                },
+                                                                {
+                                                                    "title": "轮播",
+                                                                    "path": "/banner"
+                                                                },
+                                                                {
+                                                                    "title": "推荐栏目",
+                                                                    "path": "/web_column"
+                                                                },
+                                                                {
+                                                                    "title": "网站介绍",
+                                                                    "path": "/about"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "title": "系统管理",
+                                                            "children": [
+                                                                {
+                                                                    "title": "管理员",
+                                                                    "path": "/administrator"
+                                                                },
+                                                                {
+                                                                    "title": "角色",
+                                                                    "path": "/role"
+                                                                },
+                                                                {
+                                                                    "title": "用户",
+                                                                    "path": "/user"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": 2,
+                                                    "name": "网站内容管理员"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "",
+                "description": "",
+                "tags": [
+                    "Account"
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "token": "panhezeng.token",
+                                            "id": "1",
+                                            "name": "panhezeng",
+                                            "email": "panhezeng@gmail.com",
+                                            "phone": 11111111111,
+                                            "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                            "organ_name": "Pan Organ",
+                                            "groups": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "超级管理员",
+                                                    "is_review": 1,
+                                                    "menus": [
+                                                        {
+                                                            "title": "网站内容管理",
+                                                            "children": [
+                                                                {
+                                                                    "title": "公告",
+                                                                    "path": "/announcement"
+                                                                },
+                                                                {
+                                                                    "title": "轮播",
+                                                                    "path": "/banner"
+                                                                },
+                                                                {
+                                                                    "title": "推荐栏目",
+                                                                    "path": "/web_column"
+                                                                },
+                                                                {
+                                                                    "title": "网站介绍",
+                                                                    "path": "/about"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "title": "系统管理",
+                                                            "children": [
+                                                                {
+                                                                    "title": "管理员",
+                                                                    "path": "/administrator"
+                                                                },
+                                                                {
+                                                                    "title": "角色",
+                                                                    "path": "/role"
+                                                                },
+                                                                {
+                                                                    "title": "用户",
+                                                                    "path": "/user"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": 2,
+                                                    "name": "网站内容管理员"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "",
+                "description": "",
+                "tags": [
+                    "Account"
+                ]
+            }
+        },
+        "/api/cms/login/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "token": "panhezeng.token",
+                                            "id": "1",
+                                            "name": "panhezeng",
+                                            "email": "panhezeng@gmail.com",
+                                            "phone": 11111111111,
+                                            "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                            "organ_name": "Pan Organ",
+                                            "groups": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "超级管理员",
+                                                    "is_review": 1,
+                                                    "menus": [
+                                                        {
+                                                            "title": "网站内容管理",
+                                                            "children": [
+                                                                {
+                                                                    "title": "公告",
+                                                                    "path": "/announcement"
+                                                                },
+                                                                {
+                                                                    "title": "轮播",
+                                                                    "path": "/banner"
+                                                                },
+                                                                {
+                                                                    "title": "推荐栏目",
+                                                                    "path": "/web_column"
+                                                                },
+                                                                {
+                                                                    "title": "网站介绍",
+                                                                    "path": "/about"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "title": "系统管理",
+                                                            "children": [
+                                                                {
+                                                                    "title": "管理员",
+                                                                    "path": "/administrator"
+                                                                },
+                                                                {
+                                                                    "title": "角色",
+                                                                    "path": "/role"
+                                                                },
+                                                                {
+                                                                    "title": "用户",
+                                                                    "path": "/user"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": 2,
+                                                    "name": "网站内容管理员"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Login",
+                "description": "",
+                "tags": [
+                    "Account"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "username": "panhezeng",
+                                    "password": "panhezeng"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/cms/announcement/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "number"
+                                        },
+                                        "top": {
+                                            "type": "number"
+                                        },
+                                        "status": {
+                                            "type": "number"
+                                        },
+                                        "content": {
+                                            "type": "string"
+                                        },
+                                        "attachment": {},
+                                        "creator": {
+                                            "type": "string"
+                                        },
+                                        "created_time": {
+                                            "type": "string"
+                                        },
+                                        "updated_time": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "id": 1,
+                                            "title": "title",
+                                            "type": 1,
+                                            "top": 1,
+                                            "status": 1,
+                                            "content": "content",
+                                            "attachment": [],
+                                            "creator": "creator",
+                                            "created_time": "1980-09-02 00:00:00",
+                                            "updated_time": "1980-09-02 00:00:00"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Announcement",
+                "description": "",
+                "tags": [
+                    "Announcement"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Announcement",
+                "description": "",
+                "tags": [
+                    "Announcement"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Announcement",
+                "description": "",
+                "tags": [
+                    "Announcement"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/announcement/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Create Announcement",
+                "description": "",
+                "tags": [
+                    "Announcement"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number"
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "count": 1,
+                                            "results": [
+                                                {
+                                                    "id": 1,
+                                                    "title": "title",
+                                                    "type": 1,
+                                                    "top": 1,
+                                                    "status": 1,
+                                                    "content": "content",
+                                                    "attachment": [],
+                                                    "creator": "creator",
+                                                    "created_time": "1980-09-02 00:00:00",
+                                                    "updated_time": "1980-09-02 00:00:00"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Announcements",
+                "description": "",
+                "tags": [
+                    "Announcement"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Announcements",
+                "description": "",
+                "tags": [
+                    "Announcement"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Announcements",
+                "description": "",
+                "tags": [
+                    "Announcement"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/banner/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "picture": {
+                                            "type": "string"
+                                        },
+                                        "link_type": {
+                                            "type": "number"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "resource": {
+                                            "type": "object",
+                                            "properties": {
+                                                "title": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "resource_type": {
+                                            "type": "number"
+                                        },
+                                        "resource_id": {
+                                            "type": "number"
+                                        },
+                                        "order": {
+                                            "type": "number"
+                                        },
+                                        "client": {
+                                            "type": "number"
+                                        },
+                                        "status": {
+                                            "type": "number"
+                                        },
+                                        "content": {
+                                            "type": "string"
+                                        },
+                                        "creator": {
+                                            "type": "string"
+                                        },
+                                        "created_time": {
+                                            "type": "string"
+                                        },
+                                        "updated_time": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "id": 1,
+                                            "title": "title",
+                                            "picture": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                            "link_type": 1,
+                                            "url": "",
+                                            "resource": {
+                                                "title": "课程1"
+                                            },
+                                            "resource_type": 1,
+                                            "resource_id": 1,
+                                            "order": 1,
+                                            "client": 1,
+                                            "status": 1,
+                                            "content": "content",
+                                            "creator": "creator",
+                                            "created_time": "1980-09-02 00:00:00",
+                                            "updated_time": "1980-09-02 00:00:00"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Banner",
+                "description": "",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Banner",
+                "description": "",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Banner",
+                "description": "",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/banner/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Create Banner",
+                "description": "",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number"
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "count": 1,
+                                            "results": [
+                                                {
+                                                    "id": 1,
+                                                    "title": "title",
+                                                    "picture": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                                    "link_type": 1,
+                                                    "url": "",
+                                                    "resource": {
+                                                        "title": "课程1"
+                                                    },
+                                                    "resource_type": 1,
+                                                    "resource_id": 1,
+                                                    "order": 1,
+                                                    "client": 1,
+                                                    "status": 1,
+                                                    "content": "content",
+                                                    "creator": "creator",
+                                                    "created_time": "1980-09-02 00:00:00",
+                                                    "updated_time": "1980-09-02 00:00:00"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Banners",
+                "description": "",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Banners",
+                "description": "",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Banners",
+                "description": "",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/column/{type}/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Create Column",
+                "description": "",
+                "tags": [
+                    "Column"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "web",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "resource_type",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pid",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number"
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "count": 1,
+                                            "results": [
+                                                {
+                                                    "id": 1,
+                                                    "title": "课程推荐",
+                                                    "child_resource_type": 1,
+                                                    "status": 1,
+                                                    "resource_type": 1,
+                                                    "resource_id": 1,
+                                                    "resource_title": "课程1"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Columns",
+                "description": "",
+                "tags": [
+                    "Column"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "web",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "resource_type",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pid",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Columns",
+                "description": "",
+                "tags": [
+                    "Column"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "web",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "resource_type",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pid",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/about/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "about": "web site about",
+                                            "contact": "email: panhezeng@gmail.com",
+                                            "logo": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve About",
+                "description": "",
+                "tags": [
+                    "About"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update About",
+                "description": "",
+                "tags": [
+                    "About"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/user/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "organ_name": {
+                                            "type": "string"
+                                        },
+                                        "organ_id": {
+                                            "type": "number"
+                                        },
+                                        "organ_id_path": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "phone": {
+                                            "type": "string"
+                                        },
+                                        "avatar": {
+                                            "type": "string"
+                                        },
+                                        "groups": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "status": {
+                                            "type": "number"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "panhezeng",
+                                            "organ_name": "Pan Organ",
+                                            "organ_id": 1,
+                                            "organ_id_path": [
+                                                1
+                                            ],
+                                            "email": "panhezeng@gmail.com",
+                                            "phone": "11111111111",
+                                            "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                            "groups": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "超级管理员",
+                                                    "permissions": [
+                                                        1,
+                                                        2,
+                                                        1000
+                                                    ],
+                                                    "menus": [
+                                                        {
+                                                            "id": 1,
+                                                            "title": "网站内容管理",
+                                                            "children": [
+                                                                {
+                                                                    "id": 2,
+                                                                    "title": "公告"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "is_review": 1
+                                                }
+                                            ],
+                                            "status": 1
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve User",
+                "description": "",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update User",
+                "description": "",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete User",
+                "description": "",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/user/excel/import/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "response": {
+                                        "value": []
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Users Excel Import",
+                "description": "",
+                "tags": [
+                    "User"
+                ]
+            }
+        },
+        "/api/cms/user/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Create User",
+                "description": "",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number"
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "count": 1,
+                                            "results": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "panhezeng",
+                                                    "organ_name": "Pan Organ",
+                                                    "organ_id": 1,
+                                                    "organ_id_path": [
+                                                        1
+                                                    ],
+                                                    "email": "panhezeng@gmail.com",
+                                                    "phone": "11111111111",
+                                                    "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                                    "groups": [
+                                                        {
+                                                            "id": 1,
+                                                            "name": "超级管理员",
+                                                            "permissions": [
+                                                                1,
+                                                                2,
+                                                                1000
+                                                            ],
+                                                            "menus": [
+                                                                {
+                                                                    "id": 1,
+                                                                    "title": "网站内容管理",
+                                                                    "children": [
+                                                                        {
+                                                                            "id": 2,
+                                                                            "title": "公告"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "is_review": 1
+                                                        }
+                                                    ],
+                                                    "status": 1
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Users",
+                "description": "",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Users",
+                "description": "",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Users",
+                "description": "",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/administrator/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "organ_name": {
+                                            "type": "string"
+                                        },
+                                        "organ_id": {
+                                            "type": "number"
+                                        },
+                                        "organ_id_path": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "phone": {
+                                            "type": "string"
+                                        },
+                                        "avatar": {
+                                            "type": "string"
+                                        },
+                                        "groups": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "status": {
+                                            "type": "number"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "panhezeng",
+                                            "organ_name": "Pan Organ",
+                                            "organ_id": 1,
+                                            "organ_id_path": [
+                                                1
+                                            ],
+                                            "email": "panhezeng@gmail.com",
+                                            "phone": "11111111111",
+                                            "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                            "groups": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "超级管理员",
+                                                    "permissions": [
+                                                        1,
+                                                        2,
+                                                        1000
+                                                    ],
+                                                    "menus": [
+                                                        {
+                                                            "id": 1,
+                                                            "title": "网站内容管理",
+                                                            "children": [
+                                                                {
+                                                                    "id": 2,
+                                                                    "title": "公告"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "is_review": 1
+                                                }
+                                            ],
+                                            "status": 1
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Administrator",
+                "description": "",
+                "tags": [
+                    "administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Administrator",
+                "description": "",
+                "tags": [
+                    "administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Administrator",
+                "description": "",
+                "tags": [
+                    "administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/administrator/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Create Administrator",
+                "description": "",
+                "tags": [
+                    "administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number"
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "count": 1,
+                                            "results": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "panhezeng",
+                                                    "organ_name": "Pan Organ",
+                                                    "organ_id": 1,
+                                                    "organ_id_path": [
+                                                        1
+                                                    ],
+                                                    "email": "panhezeng@gmail.com",
+                                                    "phone": "11111111111",
+                                                    "avatar": "http://dummyimage.com/200x100/50B347/FFF&text=panhezeng",
+                                                    "groups": [
+                                                        {
+                                                            "id": 1,
+                                                            "name": "超级管理员",
+                                                            "permissions": [
+                                                                1,
+                                                                2,
+                                                                1000
+                                                            ],
+                                                            "menus": [
+                                                                {
+                                                                    "id": 1,
+                                                                    "title": "网站内容管理",
+                                                                    "children": [
+                                                                        {
+                                                                            "id": 2,
+                                                                            "title": "公告"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "is_review": 1
+                                                        }
+                                                    ],
+                                                    "status": 1
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Administrators",
+                "description": "",
+                "tags": [
+                    "administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Administrators",
+                "description": "",
+                "tags": [
+                    "administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Administrators",
+                "description": "",
+                "tags": [
+                    "administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/role/menus/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number"
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "count": 1,
+                                            "results": [
+                                                {
+                                                    "id": 1,
+                                                    "title": "网站内容管理",
+                                                    "children": [
+                                                        {
+                                                            "id": 2,
+                                                            "title": "公告"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Role Menus",
+                "description": "",
+                "tags": [
+                    "Role"
+                ]
+            }
+        },
+        "/api/cms/role/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "number"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "permissions": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "menus": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "is_review": {
+                                            "type": "number"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "id": 1,
+                                            "name": "超级管理员",
+                                            "permissions": [
+                                                1,
+                                                2,
+                                                1000
+                                            ],
+                                            "menus": [
+                                                {
+                                                    "id": 1,
+                                                    "title": "网站内容管理",
+                                                    "children": [
+                                                        {
+                                                            "id": 2,
+                                                            "title": "公告"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "is_review": 1
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Role",
+                "description": "",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Role",
+                "description": "",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Role",
+                "description": "",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "example": "1",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ]
+            }
+        },
+        "/api/cms/role/": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Create Role",
+                "description": "",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number"
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "response": {
+                                        "value": {
+                                            "count": 1,
+                                            "results": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "超级管理员",
+                                                    "permissions": [
+                                                        1,
+                                                        2,
+                                                        1000
+                                                    ],
+                                                    "menus": [
+                                                        {
+                                                            "id": 1,
+                                                            "title": "网站内容管理",
+                                                            "children": [
+                                                                {
+                                                                    "id": 2,
+                                                                    "title": "公告"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "is_review": 1
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Roles",
+                "description": "",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Update Roles",
+                "description": "",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {}
+                    }
+                },
+                "summary": "Delete Roles",
+                "description": "",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Common"
+        },
+        {
+            "name": "Account"
+        },
+        {
+            "name": "Announcement"
+        },
+        {
+            "name": "Banner"
+        },
+        {
+            "name": "Column"
+        },
+        {
+            "name": "About"
+        },
+        {
+            "name": "User"
+        },
+        {
+            "name": "administrator"
+        },
+        {
+            "name": "Role"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "Cos": {},
+            "Account": {},
+            "AccountModel": {},
+            "Announcement": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "number"
+                    },
+                    "top": {
+                        "type": "number"
+                    },
+                    "status": {
+                        "type": "number"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "attachment": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "creator": {
+                        "type": "string"
+                    },
+                    "created_time": {
+                        "type": "string"
+                    },
+                    "updated_time": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Banner": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "picture": {
+                        "type": "string"
+                    },
+                    "link_type": {
+                        "type": "number"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "resource": {
+                        "$ref": "#/components/schemas/Resource"
+                    },
+                    "resource_type": {
+                        "type": "number"
+                    },
+                    "resource_id": {
+                        "type": "number"
+                    },
+                    "order": {
+                        "type": "number"
+                    },
+                    "client": {
+                        "type": "number"
+                    },
+                    "status": {
+                        "type": "number"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "creator": {
+                        "type": "string"
+                    },
+                    "created_time": {
+                        "type": "string"
+                    },
+                    "updated_time": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Column": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "child_resource_type": {
+                        "type": "number"
+                    },
+                    "status": {
+                        "type": "number"
+                    },
+                    "resource_type": {
+                        "type": "number"
+                    },
+                    "resource_id": {
+                        "type": "number"
+                    },
+                    "resource_title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "About": {},
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "organ_name": {
+                        "type": "string"
+                    },
+                    "organ_id": {
+                        "type": "number"
+                    },
+                    "organ_id_path": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "avatar": {
+                        "type": "string"
+                    },
+                    "groups": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "status": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Administrator": {},
+            "Role": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "menus": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "is_review": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Resource": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Menu": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "children": {
+                        "type": "array",
+                        "items": {}
+                    }
+                }
+            },
+            "Announcements_Collection": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "number"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {}
+                    }
+                }
+            },
+            "Banners_Collection": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "number"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {}
+                    }
+                }
+            },
+            "Columns_Collection": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "number"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {}
+                    }
+                }
+            },
+            "Users_Collection": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "number"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {}
+                    }
+                }
+            },
+            "Administrators_Collection": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "number"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {}
+                    }
+                }
+            },
+            "Role_Menus": {},
+            "Roles_Collection": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "number"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {}
+                    }
+                }
+            }
+        }
+    }
+}

@@ -136,7 +136,7 @@ store.watch(
   state => {
     return state.account.user.token;
   },
-  val => {
+  () => {
     setAuthorization();
   }
 );

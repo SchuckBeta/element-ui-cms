@@ -56,7 +56,8 @@
 - 本项目 Element UI 使用按需加载方式，可以修改 src/utils/init-components/element-ui.js 文件增减组件，自定义主题则参考 Element 文档的搭配插件按需引入组件主题部分。
 - 为减少编译时间，项目初始化依赖的 vue 等类库，除了 element-ui 外，都使用 externals 方法加载，具体见 vue.config.js的 externals 和 HtmlWebpackIncludeAssetsPlugin，为了 IDE 提示等功能，所有 external 模块配置了 package.json 的 dependencies，如无此需求可删除。本项目使用类库都采用 latest 版本策略，如有其他需要自行修改。
 - 浏览器兼容 "browserslist": last 2 chrome version,last 2 firefox version,last 2 safari version,last 2 edge version,ie 11。
-- 不需要的功能可以删除相关代码，比如如果不需要国际化，可以说删除所有 VueI18n 相关代码。
+- 不需要的功能可以删除相关代码，比如如果不需要国际化，可以说删除所有 VueI18n 相关代码；不需要切换菜单布局，则可以删除多余的菜单布局代码
+- 本页面国际化切换后，使用reload方式生效，虽然有点不太友好，但是考虑很多地方国际化不是依赖vue i18n模块，而是通过其他方式，还有如果服务端数据也有多语言版本，还需要重新通过接口请求数据等
 
 ## 开发流程
 
@@ -153,7 +154,7 @@ VSCode:
   ```bash
   curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && export NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node && nvm install node && nvm use node && npm config set registry=https://registry.npm.taobao.org && npm config set sass_binary_site=https://npm.taobao.org/mirrors/node-sass && npm config set electron_mirror=https://npm.taobao.org/mirrors/electron/ && npm config set phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs && npm config set chromedriver_cdnurl=https://npm.taobao.org/mirrors/chromedriver && npm config set selenium_cdnurl=https://npm.taobao.org/mirrors/selenium && npm install -g nrm && npm install -g node-gyp && npm i
   ```
-- 本地测试 http://0.0.0.0:8000/
+- 本地测试 http://0.0.0.0:8001/
 
   `npm run dev`
 
