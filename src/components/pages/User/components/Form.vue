@@ -2,26 +2,23 @@
   <!-- 如需定制样式, 在root元素写上 class="页面目录名-模块名", 示例 <root class="directory-file"> -->
   <el-form class="form-add-edit" label-width="120px"
            :model="formData" :rules="formRules" ref="form" :disabled="disabled">
-    <el-form-item label="姓名" prop="name" :rules="formRules.required">
+    <el-form-item :label="$t('action.name')" prop="name" :rules="formRules.required">
       <el-input v-model="formData.name"/>
     </el-form-item>
-    <el-form-item label="手机号码" prop="phone" :rules="formRules.phone">
+    <el-form-item :label="$t('action.phone')" prop="phone" :rules="formRules.phone">
       <el-input v-model="formData.phone"/>
     </el-form-item>
-    <el-form-item label="组织机构" prop="organ_id_path" :rules="formRules.required">
+    <el-form-item :label="$t('action.organName')" prop="organ_id_path" :rules="formRules.required">
       <el-cascader :options="options.organs"
                    v-model="formData.organ_id_path"
                    :props="{ children: 'structure', label: 'title', value:'id'}"
                    :change-on-select="true" :show-all-levels="false" expand-trigger="hover"
       ></el-cascader>
     </el-form-item>
-    <el-form-item label="邮箱" prop="email" :rules="formRules.email">
-      <el-input v-model="formData.email"/>
-    </el-form-item>
-    <el-form-item label="开通状态" prop="status" :rules="formRules.required">
+    <el-form-item :label="$t('action.status')" prop="status" :rules="formRules.required">
       <el-radio-group v-model="formData.status">
-        <el-radio :label="1">启用</el-radio>
-        <el-radio :label="0">禁用</el-radio>
+        <el-radio :label="1"> {{$t('action.enable')}}</el-radio>
+        <el-radio :label="0"> {{$t('action.disabled')}}</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item class="form-item-btn" v-if="!disabled">

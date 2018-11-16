@@ -87,6 +87,8 @@ const i18n = {
       status: "状态",
       action: "操作",
       role: "角色",
+      roleName: "角色名字",
+      rolePermissions: "角色权限",
       name: "名字",
       organName: "机构",
       phone: "手机号码",

@@ -27,17 +27,17 @@
         />
         <el-table-column
           prop="id"
-          label="ID"
+          :label="$t('page.list.id')"
           width="60"
         />
         <el-table-column
           prop="name"
-          label="角色名称"
+          :label="$t('page.list.roleName')"
           width="200"
         >
         </el-table-column>
         <el-table-column
-          label="角色权限"
+                :label="$t('page.list.rolePermissions')"
         >
           <template slot-scope="scope">
             <el-tree class="role-tree" ref="tree"
@@ -47,7 +47,7 @@
         </el-table-column>
         <el-table-column
           fixed="right"
-          label="操作"
+          :label="$t('page.list.action')"
           width="105"
         >
           <template slot-scope="scope">

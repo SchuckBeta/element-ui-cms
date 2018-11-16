@@ -15,28 +15,28 @@
             <!-- 如需带展开功能的查询表单, template标签写上 slot-scope="{formData, collapse}" 属性 -->
             <template slot="query-form" slot-scope="{formData}">
                 <el-form-item class="query-form-keyword" :label="$t('form.queryKeyword.label')" prop="search">
-                    <el-input v-model="formData.search" placeholder="ID|姓名"/>
+                    <el-input v-model="formData.search" :placeholder="`${$t('page.list.name')}|${$t('page.list.phone')}`"/>
                 </el-form-item>
                 <!-- 如需带展开功能的查询表单, 这写展开的模板代码 <template v-if="!collapse">展开后显示的表单项</template> -->
             </template>
             <!-- 如需增加批量操作按钮, 在这写 <template slot="header-batch-btn" slot-scope="{multipleSelection}">批量操作按钮</template> -->
             <template slot="header-batch-btn" slot-scope="{multipleSelection}">
-                <el-button size="mini" type="success" :disabled="multipleSelection.length===0"
-                           @click="batchEdit(multipleSelection.map(value => value.id), {status: 0}, multipleSelection)">
-                    批量禁用用户
-                </el-button>
                 <el-button size="mini" type="warning" :disabled="multipleSelection.length===0"
                            @click="batchEdit(multipleSelection.map(value => value.id), {status: 1}, multipleSelection)">
-                    批量启用用户
+                    {{ $t('action.batch', { action: $t('action.enable') })}}
+                </el-button>
+                <el-button size="mini" type="success" :disabled="multipleSelection.length===0"
+                           @click="batchEdit(multipleSelection.map(value => value.id), {status: 0}, multipleSelection)">
+                    {{ $t('action.batch', { action: $t('action.disabled') })}}
                 </el-button>
             </template>
             <template slot="header-add-btn-before">
                 <el-button size="mini" type="primary"
                            @click="dialogBatchAdd=true">
-                    批量添加
+                    {{ $t('action.batch', { action: $t('action.add') })}}
                 </el-button>
             </template>
-            <el-dialog title="批量添加用户" :visible.sync="dialogBatchAdd">
+            <el-dialog :title="$t('action.batch', { action: $t('action.add') })" :visible.sync="dialogBatchAdd">
                 <single-upload :url.sync="excelImportUrl" :del="false" :view="false"
                                @request-upload="excelRequestUpload" @success-upload="excelSuccessUpload"
                                @error-upload="excelErrorUpload"
@@ -56,29 +56,27 @@
                 />
                 <el-table-column
                         prop="id"
-                        label="ID"
+                        :label="$t('page.list.id')"
                         width="60"
                 />
                 <el-table-column
                         prop="name"
-                        label="姓名"
-                >
-                </el-table-column>
+                        :label="$t('page.list.name')"
+                />
                 <el-table-column
                         prop="organ_name"
-                        label="所属机构"
-                >
-                </el-table-column>
+                        :label="$t('page.list.organName')"
+                />
                 <el-table-column
                         prop="phone"
-                        label="手机号"
+                        :label="$t('page.list.phone')"
                 />
                 <el-table-column
                         :filter-multiple="false"
                         :filters="filters.status"
                         column-key="status"
                         prop="status"
-                        label="状态"
+                        :label="$t('page.list.status')"
                         width="90"
                 >
                     <template slot-scope="scope">
@@ -88,7 +86,7 @@
                 </el-table-column>
                 <el-table-column
                         fixed="right"
-                        label="操作"
+                        :label="$t('page.list.action')"
                         width="105"
                 >
                     <template slot-scope="scope">

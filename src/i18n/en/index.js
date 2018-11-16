@@ -84,6 +84,8 @@ const i18n = {
       status: "Status",
       action: "Action",
       role: "Role",
+      roleName: "Role Name",
+      rolePermissions: "Role Permissions",
       name: "Name",
       organName: "Organ Name",
       phone: "Phone",

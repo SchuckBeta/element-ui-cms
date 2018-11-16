@@ -57,7 +57,7 @@
           :label="$t('page.list.organName')"
         />
         <el-table-column
-          prop="type"
+          prop="role"
           :label="$t('page.list.role')"
         >
           <template slot-scope="scope">
