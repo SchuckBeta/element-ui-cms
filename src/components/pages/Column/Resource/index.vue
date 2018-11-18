@@ -16,23 +16,19 @@
       <!-- 如需带展开功能的查询表单, template标签写上 slot-scope="{formData, collapse}" 属性 -->
       <template slot="query-form" slot-scope="{formData}">
         <el-form-item class="query-form-keyword" :label="$t('form.queryKeyword.label')" prop="search">
-          <el-input v-model="formData.search" placeholder="ID|标题"/>
+          <el-input v-model="formData.search" :placeholder="$t('form.queryKeyword.placeholder')"/>
         </el-form-item>
-        <!-- <el-form-item label="更新时间">
-          <query-form-date-range :date_range_start.sync="formData.date_range_start"
-                                 :date_range_end.sync="formData.date_range_end"/>
-        </el-form-item> -->
         <!-- 如需带展开功能的查询表单, 这写展开的模板代码 <template v-if="!collapse">展开后显示的表单项</template> -->
       </template>
       <!-- 如需增加批量操作按钮, 在这写 <template slot="header-batch-btn" slot-scope="{multipleSelection}">批量操作按钮</template> -->
       <template slot="header-batch-btn" slot-scope="{multipleSelection}">
         <el-button size="mini" type="success" :disabled="multipleSelection.length===0"
                    @click="batchEdit(multipleSelection.map(value => value.id), {status: 1}, multipleSelection)">
-          批量上线
+          {{ $t('action.batch', { action: $t('action.on') })}}
         </el-button>
         <el-button size="mini" type="warning" :disabled="multipleSelection.length===0"
                    @click="batchEdit(multipleSelection.map(value => value.id), {status: 0}, multipleSelection)">
-          批量下线
+          {{ $t('action.batch', { action: $t('action.off') })}}
         </el-button>
       </template>
       <!-- 如需批量操作, 在el-table内第一行写上 <el-table-column type="selection" width="55" /> -->
@@ -49,19 +45,19 @@
         />
         <el-table-column
           prop="id"
-          label="ID"
+          :label="$t('page.content.id')"
           width="60"
         />
         <el-table-column
           prop="resource_title"
-          label="标题"
+          :label="$t('page.content.title')"
         />
         <el-table-column
           :filter-multiple="false"
           :filters="filters.type"
           column-key="resource_type"
           prop="resource_type"
-          label="类型"
+          :label="$t('page.content.type')"
           width="90"
         >
           <template slot-scope="scope">
@@ -70,7 +66,7 @@
         </el-table-column>
         <el-table-column
           fixed="right"
-          label="操作"
+          :label="$t('page.content.action')"
           width="105"
         >
           <template slot-scope="scope">
