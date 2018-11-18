@@ -12,6 +12,6 @@ shell.cp("-R", resolve("dist/*"), resolve("docs"));
 shell.sed(
   "-i",
   "/api/cms",
-  "https://private-3fcd8b-elementuicms.apiary-mock.com",
-  resolve("docs/static/js/app*.js")
+  "https://private-3fcd8b-elementuicms.apiary-mock.com/api/cms",
+  resolve("docs/js/app*.js")
 );
