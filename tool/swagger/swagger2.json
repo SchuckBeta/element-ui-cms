@@ -1134,6 +1134,91 @@
             }
         },
         "/api/cms/column/{type}/{id}/": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "title": "课程推荐",
+                                "child_resource_type": 1,
+                                "status": 1,
+                                "order": 1,
+                                "resource_type": 1,
+                                "resource_id": 1,
+                                "resource_title": "课程1",
+                                "resource": {
+                                    "title": "课程1"
+                                }
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "number"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "child_resource_type": {
+                                    "type": "number"
+                                },
+                                "status": {
+                                    "type": "number"
+                                },
+                                "order": {
+                                    "type": "number"
+                                },
+                                "resource_type": {
+                                    "type": "number"
+                                },
+                                "resource_id": {
+                                    "type": "number"
+                                },
+                                "resource_title": {
+                                    "type": "string"
+                                },
+                                "resource": {
+                                    "type": "object",
+                                    "properties": {
+                                        "title": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve Column",
+                "description": "",
+                "tags": [
+                    "Column"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "x-example": "1",
+                        "type": "number"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
             "patch": {
                 "responses": {
                     "200": {
@@ -1247,9 +1332,13 @@
                                         "title": "课程推荐",
                                         "child_resource_type": 1,
                                         "status": 1,
+                                        "order": 1,
                                         "resource_type": 1,
                                         "resource_id": 1,
-                                        "resource_title": "课程1"
+                                        "resource_title": "课程1",
+                                        "resource": {
+                                            "title": "课程1"
+                                        }
                                     }
                                 ]
                             }
@@ -2774,6 +2863,9 @@
                 "status": {
                     "type": "number"
                 },
+                "order": {
+                    "type": "number"
+                },
                 "resource_type": {
                     "type": "number"
                 },
@@ -2782,6 +2874,9 @@
                 },
                 "resource_title": {
                     "type": "string"
+                },
+                "resource": {
+                    "$ref": "#/definitions/Resource"
                 }
             }
         },

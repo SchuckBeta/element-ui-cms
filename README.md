@@ -1,3 +1,11 @@
+## 示例
+
+[点击预览](https://panhezeng.github.io/element-ui-cms/)
+
+示例代码目录 docs
+
+示例使用的apiary mock服务每次Request获得的Response都是不变的。免费服务可能会出现无响应等错误。免费又稳定，限制少，同时支持https的mock服务，也就apiary了。
+
 ## 目录
 
 ```bash
@@ -49,7 +57,7 @@
 
 ## 阐述
 
-- 本项目是基于[Element UI](http://element-cn.eleme.io)开发的 CMS 脚手架，依赖 vue，vue-router，vuex 等类库，详见 package.json。
+- 本项目是基于[Element UI](http://element-cn.eleme.io)开发的 CMS原型，依赖 vue，vue-router，vuex 等类库，详见 package.json。
 - 本项目的理念是简单好改，专注解决开发 CMS 最基本和核心的需求，用户访问页面权限，数据列表的展示，列表查询筛选排序，列表项的增删查改等。
 - 本项目主要是对本人以前开发的 CMS 的抽象封装和重构优化，参考了 Ant Design Pro 和 Vue Element Admin，和它们的最重要区别在于，当用户通过点击菜单浏览列表页面，然后进行翻页，筛选等操作后，再刷新页面，依然可以恢复刷新前的列表查询条件。
 - 最佳实践，最大限度使用 Vue 的组合，插槽（slot），混入 (mixins)，抽象封装可复用代码。
@@ -58,6 +66,7 @@
 - 浏览器兼容 "browserslist": last 2 chrome version,last 2 firefox version,last 2 safari version,last 2 edge version,ie 11。
 - 不需要的功能可以删除相关代码，比如如果不需要国际化，可以说删除所有 VueI18n 相关代码；不需要切换菜单布局，则可以删除多余的菜单布局代码
 - 本页面国际化切换后，使用reload方式生效，虽然有点不太友好，但是考虑很多地方国际化不是依赖vue i18n模块，而是通过其他方式，还有如果服务端数据也有多语言版本，还需要重新通过接口请求数据等
+- 根据项目需求不同，团队人员技术选型不同，在权限设计上会有所不同，本原型后端语言默认是Python，菜单通过后端获得，权限只到页面级别。如果希望菜单放到前端，权限要细化到增删查改级别，则需要修改相关代码，在相关功能处已经通过注释说明
 
 ## 开发流程
 
