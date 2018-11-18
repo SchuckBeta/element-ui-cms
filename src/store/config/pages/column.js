@@ -4,16 +4,6 @@ export default {
     path: "/web_column",
     componentPath: "/pages/Column/index",
     include: {
-      WebColumnAdd: {
-        title: "添加栏目",
-        path: "/web_column/add",
-        componentPath: "/pages/Column/Item"
-      },
-      WebColumnEdit: {
-        title: "编辑栏目",
-        path: "/web_column/edit",
-        componentPath: "/pages/Column/Item"
-      },
       WebColumnResource: {
         title: "资源管理",
         path: "/web_column/resource",
@@ -38,16 +28,6 @@ export default {
     path: "/app_column",
     componentPath: "/pages/Column/index",
     include: {
-      AppColumnAdd: {
-        title: "添加栏目",
-        path: "/app_column/add",
-        componentPath: "/pages/Column/Item"
-      },
-      AppColumnEdit: {
-        title: "编辑栏目",
-        path: "/app_column/edit",
-        componentPath: "/pages/Column/Item"
-      },
       AppColumnResource: {
         title: "资源管理",
         path: "/app_column/resource",

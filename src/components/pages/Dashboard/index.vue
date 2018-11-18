@@ -4,7 +4,7 @@
     <div class="todos row">
       <div class="title">
         <svg-icon icon="notice-fill"/>
-        待办事项
+        {{$t('page.content.todos')}}
       </div>
       <div class="content">
         <a href="#" class="item" v-for="(item,index) in todos" :key="index" @click.prevent="$router.push(item.path)">{{item.title}}
@@ -14,7 +14,7 @@
     <div class="quick-start row">
       <div class="title">
         <svg-icon icon="light-fill"/>
-        快速开始
+        {{$t('page.content.quickStart')}}
       </div>
       <div class="content">
         <div class="item" v-for="item in quickStart" :key="item.path">

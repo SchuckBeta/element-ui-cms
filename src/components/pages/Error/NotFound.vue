@@ -1,7 +1,7 @@
 <template>
   <div class="not-found">
     <h1>{{tip}}</h1>
-    <h3 v-if="redirectTip">{{redirectTip}}，<a href="#" @click.prevent="redirect">立即前往</a></h3>
+    <h3 v-if="redirectTip">{{redirectTip}}，<a href="#" @click.prevent="redirect">{{$t('page.content.goNow')}}</a></h3>
   </div>
 </template>
 <script>
@@ -13,9 +13,9 @@ export default {
   computed: {
     tip() {
       if (this.$route.query.title) {
-        return `无权找到${this.$route.query.title}页`;
+        return `${this.$t("page.content.notFound")}${this.$route.query.title}`;
       } else {
-        return "没有找到该页面";
+        return this.$t("page.content.notFound");
       }
     }
   }

@@ -4,27 +4,27 @@
       <resource-search v-bind="$attrs" :resource.sync="resource"/>
       <el-button class="add" @click="add" v-if="!$attrs.disabled">{{$t('action.add')}}</el-button>
     </div>
-    <h4 class="list-title">{{$t('page.list.listOfSelectedResources')}}</h4>
+    <h4 class="list-title">{{$t('page.content.listOfSelectedResources')}}</h4>
     <el-table ref="listTable"
               :data="list"
     >
       <el-table-column
         prop="order"
-        :label="$t('page.list.order')"
+        :label="$t('page.content.order')"
         width="60"
       />
       <el-table-column
         prop="id"
-        :label="$t('page.list.id')"
+        :label="$t('page.content.id')"
         width="60"
       />
       <el-table-column
         prop="title"
-        :label="$t('page.list.title')"
+        :label="$t('page.content.title')"
       />
       <el-table-column
         prop="resource_type"
-        :label="$t('page.list.type')"
+        :label="$t('page.content.type')"
         width="90"
       >
         <template slot-scope="scope">
@@ -33,18 +33,18 @@
       </el-table-column>
       <el-table-column
               prop="creator"
-              :label="$t('page.list.creator')"
+              :label="$t('page.content.creator')"
               width="120"
       />
       <el-table-column
         prop="updated_time"
-        :label="$t('page.list.updatedTime')"
+        :label="$t('page.content.updatedTime')"
         width="159"
         show-overflow-tooltip
       />
       <el-table-column
         fixed="right"
-        :label="$t('page.list.action')"
+        :label="$t('page.content.action')"
         width="105"
       >
         <template slot-scope="scope">

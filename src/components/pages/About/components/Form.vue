@@ -2,13 +2,13 @@
     <!-- 如需定制样式, 在root元素写上 class="页面目录名-模块名", 示例 <root class="directory-file"> -->
     <el-form class="form-add-edit" label-width="120px"
              :model="formData" :rules="formRules" ref="form" :disabled="disabled">
-        <el-form-item :label="$t('page.list.about')" prop="about" :rules="formRules.required">
+        <el-form-item :label="$t('page.content.about')" prop="about" :rules="formRules.required">
             <el-input type="textarea" :rows="7" v-model="formData.about"/>
         </el-form-item>
-        <el-form-item :label="$t('page.list.contact')" prop="contact" :rules="formRules.required">
+        <el-form-item :label="$t('page.content.contact')" prop="contact" :rules="formRules.required">
             <el-input v-model="formData.contact"/>
         </el-form-item>
-        <el-form-item :label="$t('page.list.logo')" prop="logo"
+        <el-form-item :label="$t('page.content.logo')" prop="logo"
                       :show-message="!formData.logo" :rules="formRules.uploadImg"
                       class="single-upload-form-item">
             <single-upload :url.sync="formData.logo" :tip="`* ${$t('form.suggestion')}：200*200 px *`"/>

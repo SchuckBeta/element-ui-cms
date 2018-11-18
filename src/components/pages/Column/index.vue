@@ -15,11 +15,11 @@
       <div slot="list" slot-scope="{list,getTextByValue}">
         <div v-for="item in list" :key="item.id" class="column-list">
           <div class="column-header" :ref="`column${item.id}`">
-            <popover-dialog-edit title="编辑栏目标题" :item="item" item-key="title" :edit="edit"/>
+            <popover-dialog-edit :title="$t('page.content.editTheColumnTitle')" :item="item" item-key="title" :edit="edit"/>
             <div>
               <el-button :style="`color:${item.status?'#e6a23c':'#67c23a'};`" type="text"
                          @click="edit(item, {status:item.status? 0 : 1})">
-                {{getTextByValue(filters.status,Number(!item.status),'value')+'栏目'}}
+                {{getTextByValue(filters.status,Number(!item.status),'value')+$t('page.content.column')}}
               </el-button>
               <el-button type="text" @click="showList(item.id)" v-show="item.id!==show">{{$t('action.expand')}}<i
                 class="el-icon-arrow-down"></i></el-button>
@@ -107,9 +107,6 @@ export default {
   },
   methods: {
     ...mapMutations([mutationsTypes.LOADING_VISIBLE]),
-    //      resourcePathIframe (item) {
-    //        return `${this.resourcePath}?pid=${item.id}&resource_type=${item.child_resource_type}&page_header=0&page_side=0&page_footer=0&page_content_header=0&limit=8`
-    //      },
     showList(id) {
       this.show = Number(id);
       this.$nextTick(function() {

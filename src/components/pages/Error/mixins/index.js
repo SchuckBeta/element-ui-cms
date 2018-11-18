@@ -8,9 +8,10 @@ export default {
     if (this.$route.query.redirect_path) {
       let cd = 3;
       const update = () => {
-        this.redirectTip = `${cd}秒后自动前往${
-          this.$route.query.redirect_title
-        }页`;
+        this.redirectTip = this.$t("page.content.goAutoAfterSecond", {
+          cd: cd,
+          page: this.$route.query.redirect_title
+        });
         cd--;
         if (cd < 0) {
           this.redirect();

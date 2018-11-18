@@ -2,10 +2,10 @@
   <!-- 如需定制样式, 在root元素写上 class="页面目录名-模块名", 示例 <root class="directory-file"> -->
   <el-form class="form-add-edit" label-width="120px"
            :model="formData" :rules="formRules" ref="form" :disabled="disabled">
-    <el-form-item :label="$t('page.list.title')" prop="title" :rules="formRules.required">
+    <el-form-item :label="$t('page.content.title')" prop="title" :rules="formRules.required">
       <el-input v-model="formData.title"/>
     </el-form-item>
-    <el-form-item  :label="$t('page.list.client')" prop="client" :rules="formRules.required">
+    <el-form-item  :label="$t('page.content.client')" prop="client" :rules="formRules.required">
       <el-select v-model="formData.client" :placeholder="$t('action.pleaseSelect')">
         <el-option
           v-for="item in options.client"
@@ -15,15 +15,15 @@
         </el-option>
       </el-select>
     </el-form-item>
-    <el-form-item :label="$t('page.list.order')" prop="order" :rules="formRules.required">
+    <el-form-item :label="$t('page.content.order')" prop="order" :rules="formRules.required">
       <el-input-number v-model="formData.order"/>
     </el-form-item>
-    <el-form-item :label="$t('page.list.picture')" prop="picture"
+    <el-form-item :label="$t('page.content.picture')" prop="picture"
                   :show-message="!formData.picture" :rules="formRules.uploadImg"
                   class="single-upload-form-item">
       <single-upload :url.sync="formData.picture" :disabled="disabled"/>
     </el-form-item>
-    <el-form-item :label="$t('page.list.link')" prop="link_type" :rules="formRules.required">
+    <el-form-item :label="$t('page.content.link')" prop="link_type" :rules="formRules.required">
       <el-radio-group v-model="formData.link_type" @change="clearValidate($refs['form'],['url','resource_id'])">
         <el-radio v-for="item in options.link_type" :key="item.value" :label="item.value">{{item.text}}</el-radio>
       </el-radio-group>
@@ -31,7 +31,7 @@
     <el-form-item label="" prop="url" :rules="formRules.url" v-if="formData.link_type===0">
       <el-input v-model="formData.url"/>
     </el-form-item>
-    <el-form-item :label="$t('page.list.selectResource')"  prop="resource_id" :rules="formRules.noFalse" v-else>
+    <el-form-item :label="$t('page.content.selectResource')"  prop="resource_id" :rules="formRules.noFalse" v-else>
       <resource-search :disabled="disabled"
                        :type.sync="formData.resource_type"
                        :id.sync="formData.resource_id"

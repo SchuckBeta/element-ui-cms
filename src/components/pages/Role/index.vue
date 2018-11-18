@@ -27,17 +27,17 @@
         />
         <el-table-column
           prop="id"
-          :label="$t('page.list.id')"
+          :label="$t('page.content.id')"
           width="60"
         />
         <el-table-column
           prop="name"
-          :label="$t('page.list.roleName')"
+          :label="$t('page.content.roleName')"
           width="200"
         >
         </el-table-column>
         <el-table-column
-                :label="$t('page.list.rolePermissions')"
+                :label="$t('page.content.rolePermissions')"
         >
           <template slot-scope="scope">
             <el-tree class="role-tree" ref="tree"
@@ -47,7 +47,7 @@
         </el-table-column>
         <el-table-column
           fixed="right"
-          :label="$t('page.list.action')"
+          :label="$t('page.content.action')"
           width="105"
         >
           <template slot-scope="scope">

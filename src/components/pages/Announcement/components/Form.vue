@@ -2,15 +2,15 @@
   <!-- 如需定制样式, 在root元素写上 class="页面目录名-模块名", 示例 <root class="directory-file"> -->
   <el-form class="form-add-edit" label-width="120px"
            :model="formData" :rules="formRules" ref="form" :disabled="disabled">
-    <el-form-item :label="$t('page.list.title')" prop="title" :rules="formRules.required">
+    <el-form-item :label="$t('page.content.title')" prop="title" :rules="formRules.required">
       <el-input v-model="formData.title"/>
     </el-form-item>
     <!-- 富文本编辑器的表单项验证需要设置 :show-message="!formData.content" 才能实现预期效果 -->
-    <el-form-item :label="$t('page.list.content')" prop="content" :show-message="!formData.content"
+    <el-form-item :label="$t('page.content.content')" prop="content" :show-message="!formData.content"
                   :rules="formRules.required">
       <editor :content.sync="formData.content" :height="200" :readonly="disabled"/>
     </el-form-item>
-    <el-form-item :label="$t('page.list.type')" prop="type" :rules="formRules.required">
+    <el-form-item :label="$t('page.content.type')" prop="type" :rules="formRules.required">
       <el-select v-model="formData.type" :placeholder="$t('action.pleaseSelect')">
         <el-option
           v-for="item in options.importance"
@@ -20,7 +20,7 @@
         </el-option>
       </el-select>
     </el-form-item>
-    <el-form-item :label="$t('page.list.top')" prop="top" :rules="formRules.required">
+    <el-form-item :label="$t('page.content.top')" prop="top" :rules="formRules.required">
       <el-switch
         v-model="formData.top"
         :active-value="1"
@@ -29,7 +29,7 @@
         :inactive-text="$t('action.no')">
       </el-switch>
     </el-form-item>
-    <el-form-item :label="$t('page.list.attachment')" prop="attachment">
+    <el-form-item :label="$t('page.content.attachment')" prop="attachment">
       <multiple-upload :file-list.sync="formData.attachment"
                        :disabled="disabled"/>
     </el-form-item>

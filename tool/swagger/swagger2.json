@@ -1133,6 +1133,39 @@
                 ]
             }
         },
+        "/api/cms/column/{type}/{id}/": {
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Update Column",
+                "description": "",
+                "tags": [
+                    "Column"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "x-example": "1",
+                        "type": "number"
+                    }
+                ]
+            }
+        },
         "/api/cms/column/{type}/": {
             "post": {
                 "responses": {

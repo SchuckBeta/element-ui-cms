@@ -86,6 +86,8 @@ const i18n = {
       role: "Role",
       roleName: "Role Name",
       rolePermissions: "Role Permissions",
+      menuPermissions: "Menu Permissions",
+      otherPermissions: "Other Permissions",
       name: "Name",
       organName: "Organ Name",
       phone: "Phone",
@@ -93,8 +95,17 @@ const i18n = {
       selectResource: "Select Resource",
       about: "About",
       contact: "Contact",
+      logo: "Logo",
       link: "Link",
-      logo: "Logo"
+      todos: "Todos",
+      quickStart: "Quick Start",
+      editTheColumnTitle: "Edit The Column Title",
+      column: "Column",
+      goNow: "Go Now",
+      notFound: "Not Found",
+      noAccess: "No Access",
+      goAutoAfterSecond: "Go to the {page} automatically after {cd} second",
+      userInfo: "User Info"
     }
   }
 };

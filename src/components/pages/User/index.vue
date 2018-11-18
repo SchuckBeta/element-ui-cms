@@ -15,7 +15,7 @@
             <!-- 如需带展开功能的查询表单, template标签写上 slot-scope="{formData, collapse}" 属性 -->
             <template slot="query-form" slot-scope="{formData}">
                 <el-form-item class="query-form-keyword" :label="$t('form.queryKeyword.label')" prop="search">
-                    <el-input v-model="formData.search" :placeholder="`${$t('page.list.name')}|${$t('page.list.phone')}`"/>
+                    <el-input v-model="formData.search" :placeholder="`${$t('page.content.name')}|${$t('page.content.phone')}`"/>
                 </el-form-item>
                 <!-- 如需带展开功能的查询表单, 这写展开的模板代码 <template v-if="!collapse">展开后显示的表单项</template> -->
             </template>
@@ -56,27 +56,27 @@
                 />
                 <el-table-column
                         prop="id"
-                        :label="$t('page.list.id')"
+                        :label="$t('page.content.id')"
                         width="60"
                 />
                 <el-table-column
                         prop="name"
-                        :label="$t('page.list.name')"
+                        :label="$t('page.content.name')"
                 />
                 <el-table-column
                         prop="organ_name"
-                        :label="$t('page.list.organName')"
+                        :label="$t('page.content.organName')"
                 />
                 <el-table-column
                         prop="phone"
-                        :label="$t('page.list.phone')"
+                        :label="$t('page.content.phone')"
                 />
                 <el-table-column
                         :filter-multiple="false"
                         :filters="filters.status"
                         column-key="status"
                         prop="status"
-                        :label="$t('page.list.status')"
+                        :label="$t('page.content.status')"
                         width="90"
                 >
                     <template slot-scope="scope">
@@ -86,7 +86,7 @@
                 </el-table-column>
                 <el-table-column
                         fixed="right"
-                        :label="$t('page.list.action')"
+                        :label="$t('page.content.action')"
                         width="105"
                 >
                     <template slot-scope="scope">

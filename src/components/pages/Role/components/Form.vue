@@ -2,10 +2,10 @@
   <!-- 如需定制样式, 在root元素写上 class="页面目录名-模块名", 示例 <root class="directory-file"> -->
   <el-form class="form-add-edit" label-width="120px"
            :model="formData" :rules="formRules" ref="form" :disabled="disabled">
-    <el-form-item label="角色名称" prop="name" :rules="formRules.required">
+    <el-form-item :label="$t('page.content.roleName')" prop="name" :rules="formRules.required">
       <el-input v-model="formData.name"/>
     </el-form-item>
-    <el-form-item label="菜单权限" prop="permissions" :rules="formRules.required">
+    <el-form-item :label="$t('page.content.menuPermissions')" prop="permissions" :rules="formRules.required">
       <el-tree ref="tree"
                show-checkbox
                default-expand-all
@@ -16,8 +16,8 @@
                @check-change="getCheckedKeys"
       />
     </el-form-item>
-    <el-form-item label="其他权限" v-if="options.permissions.length">
-      <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllOtherPermissions">全选
+    <el-form-item :label="$t('page.content.otherPermissions')" v-if="options.permissions.length">
+      <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllOtherPermissions">{{$t('action.selectAll')}}
       </el-checkbox>
       <el-checkbox-group v-model="otherPermissions" @change="handleCheckedOtherPermissions">
         <el-checkbox v-for="item in options.permissions" :label="item.value" :key="item.value">{{item.text}}

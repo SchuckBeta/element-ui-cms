@@ -1,7 +1,7 @@
 <template>
   <div class="not-permission">
     <h1>{{tip}}</h1>
-    <h3 v-if="redirectTip">{{redirectTip}}，<a href="#" @click.prevent="redirect">立即前往</a></h3>
+    <h3 v-if="redirectTip">{{redirectTip}}，<a href="#" @click.prevent="redirect">{{$t('page.content.goNow')}}</a></h3>
   </div>
 </template>
 <script>
@@ -13,9 +13,9 @@ export default {
   computed: {
     tip() {
       if (this.$route.query.title) {
-        return `无权访问${this.$route.query.title}页`;
+        return `${this.$t("page.content.noAccess")}${this.$route.query.title}`;
       } else {
-        return "无权访问该页";
+        return this.$t("page.content.noAccess");
       }
     }
   }

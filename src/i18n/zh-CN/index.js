@@ -72,7 +72,7 @@ const i18n = {
     footer: {
       info: "panhezeng@gmail.com"
     },
-    list: {
+    content: {
       id: "ID",
       title: "标题",
       order: "顺序",
@@ -89,6 +89,8 @@ const i18n = {
       role: "角色",
       roleName: "角色名字",
       rolePermissions: "角色权限",
+      menuPermissions: "菜单权限",
+      otherPermissions: "其他权限",
       name: "名字",
       organName: "机构",
       phone: "手机号码",
@@ -98,6 +100,14 @@ const i18n = {
       contact: "联系方式",
       logo: "Logo",
       link: "链接",
+      todos: "待办事项",
+      quickStart: "快速开始",
+      editTheColumnTitle: "编辑栏目标题",
+      column: "栏目",
+      goNow: "立即前往",
+      notFound: "没有发现",
+      noAccess: "无权访问",
+      goAutoAfterSecond: "{cd}秒后自动前往{page}",
       userInfo: "用户信息"
     }
   }

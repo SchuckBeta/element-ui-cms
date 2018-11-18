@@ -17,7 +17,7 @@
         <el-form-item class="query-form-keyword" :label="$t('form.queryKeyword.label')" prop="search">
           <el-input v-model="formData.search" :placeholder="$t('form.queryKeyword.placeholder')"/>
         </el-form-item>
-        <el-form-item :label="$t('page.list.updatedTime')">
+        <el-form-item :label="$t('page.content.updatedTime')">
           <query-form-date-range :date_range_start.sync="formData.date_range_start"
                                  :date_range_end.sync="formData.date_range_end"/>
         </el-form-item>
@@ -48,19 +48,19 @@
         />
         <el-table-column
           prop="id"
-          :label="$t('page.list.id')"
+          :label="$t('page.content.id')"
           width="60"
         />
         <el-table-column
           prop="title"
-          :label="$t('page.list.title')"
+          :label="$t('page.content.title')"
         />
         <el-table-column
           :filter-multiple="false"
           :filters="filters.type"
           column-key="type"
           prop="type"
-          :label="$t('page.list.type')"
+          :label="$t('page.content.type')"
           width="90"
         >
           <template slot-scope="scope">
@@ -72,7 +72,7 @@
           :filters="filters.top"
           column-key="top"
           prop="top"
-          :label="$t('page.list.top')"
+          :label="$t('page.content.top')"
           width="90"
         >
           <template slot-scope="scope">
@@ -81,13 +81,13 @@
         </el-table-column>
         <el-table-column
           prop="creator"
-          :label="$t('page.list.creator')"
+          :label="$t('page.content.creator')"
           width="120"
         />
         <el-table-column
           sortable="custom"
           prop="updated_time"
-          :label="$t('page.list.updatedTime')"
+          :label="$t('page.content.updatedTime')"
           width="159"
           show-overflow-tooltip
         />
@@ -96,7 +96,7 @@
           :filters="filters.status"
           column-key="status"
           prop="status"
-          :label="$t('page.list.status')"
+          :label="$t('page.content.status')"
           width="90"
         >
           <template slot-scope="scope">
@@ -105,7 +105,7 @@
         </el-table-column>
         <el-table-column
           fixed="right"
-          :label="$t('page.list.action')"
+          :label="$t('page.content.action')"
           width="105"
         >
           <template slot-scope="scope">
