@@ -136,7 +136,7 @@ VSCode:
 
 ```
     "prettier.eslintIntegration": true, // 开启 eslint 支持
-    "eslint.autoFixOnSave": true, // 每次保存的时候双引号
+    "eslint.autoFixOnSave": true, // 每次保存时自动修复
     "eslint.validate": [ //开启对.vue文件中错误的检查
         "javascript",
         "javascriptreact",
