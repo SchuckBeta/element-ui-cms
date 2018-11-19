@@ -63,10 +63,6 @@ function setPagesByPath(data, include = false) {
     if (data.hasOwnProperty(key)) {
       const page = data[key];
       if (Object.prototype.toString.call(page) === "[object Object]") {
-        // 去掉最后的斜杠
-        if (page.path.slice(-1) === "/") page.path = page.path.slice(0, -1);
-        // 赋值页面路由名
-        page.name = key;
         // 如果pagesByPath已有和页面路径同名属性，或者是子页面配置并且pages已有和key同名属性，或者则报错，说明配置有问题
         // 否则赋值
         if (
@@ -82,6 +78,17 @@ function setPagesByPath(data, include = false) {
             })
           );
         } else {
+          if (
+            process.env.VUE_APP_ROUTE_PATH &&
+            !String(page.path).includes(process.env.VUE_APP_ROUTE_PATH)
+          ) {
+            // 给路由配置路径加上统一路径
+            page.path = process.env.VUE_APP_ROUTE_PATH + page.path;
+          }
+          // 去掉最后的斜杠
+          if (page.path.slice(-1) === "/") page.path = page.path.slice(0, -1);
+          // 赋值页面路由名
+          page.name = key;
           pagesByPath[page.path] = page;
           // 如果是子页面配置，则在页面配置对象顶层增加一份所有子孙页面路由配置的引用
           if (include) pages[key] = page;

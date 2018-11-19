@@ -1,5 +1,5 @@
 module.exports = {
   port: 9000,
-  directory: "docs",
-  spa: "index.html"
+  directory: "server/dist",
+  spa: "element-ui-cms/index.html"
 };

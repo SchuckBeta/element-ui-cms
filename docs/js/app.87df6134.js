@@ -644,7 +644,15 @@
       n.d(t, "a", function() {
         return u;
       });
-    n("456d"), n("6b54"), n("f751"), n("ac6a");
+    n("456d"),
+      n("6762"),
+      n("2fdb"),
+      n("6b54"),
+      n("f751"),
+      n("ac6a"),
+      n("cadf"),
+      n("551c"),
+      n("097d");
     var c = n("dd96"),
       a = { afterLogin: 1, allow: 2, notAllow: 0 },
       o = {
@@ -687,11 +695,7 @@
         if (e.hasOwnProperty(n)) {
           var c = e[n];
           if ("[object Object]" === Object.prototype.toString.call(c)) {
-            if (
-              ("/" === c.path.slice(-1) && (c.path = c.path.slice(0, -1)),
-              (c.name = n),
-              s.hasOwnProperty(c.path) || (t && o.hasOwnProperty(n)))
-            )
+            if (s.hasOwnProperty(c.path) || (t && o.hasOwnProperty(n)))
               throw new Error(
                 JSON.stringify({
                   err:
@@ -700,7 +704,11 @@
                   p2: c
                 })
               );
-            (s[c.path] = c),
+            String(c.path).includes("/element-ui-cms") ||
+              (c.path = "/element-ui-cms" + c.path),
+              "/" === c.path.slice(-1) && (c.path = c.path.slice(0, -1)),
+              (c.name = n),
+              (s[c.path] = c),
               t && (o[n] = c),
               "[object Object]" === Object.prototype.toString.call(c.include) &&
                 Object.keys(c.include).length &&
@@ -1807,7 +1815,14 @@
         c),
         u
       ),
-      d = (n("7f7f"), n("28a5"), n("2909")),
+      d = (n("7f7f"),
+      n("6762"),
+      n("2fdb"),
+      n("28a5"),
+      n("cadf"),
+      n("551c"),
+      n("097d"),
+      n("2909")),
       l = [];
     var f = [s["b"].Dashboard, s["b"].Space].concat(Object(d["a"])(l));
     function p(e, t) {
@@ -1853,7 +1868,9 @@
           c.push(f);
           var b = void 0;
           d.path &&
-            ("/" === d.path.slice(-1) && (d.path = d.path.slice(0, -1)),
+            (String(d.path).includes("/element-ui-cms") ||
+              (d.path = "/element-ui-cms" + d.path),
+            "/" === d.path.slice(-1) && (d.path = d.path.slice(0, -1)),
             (b = s["c"][d.path])),
             !b && d.name && (b = s["b"][d.name]),
             b &&
@@ -3208,4 +3225,4 @@
       });
   }
 });
-//# sourceMappingURL=app.9e6b8e01.js.map
+//# sourceMappingURL=app.87df6134.js.map

@@ -103,6 +103,13 @@ function recursiveMenu(
       let page;
       // 获得菜单项对应的页面配置，支持两种方式，路由名name和路由路径path，后端语言命名通常不使用驼峰命名，但路由路径url命名规范前后端一样，为了不造成不必要的麻烦，推荐使用path
       if (menu.path) {
+        if (
+          process.env.VUE_APP_ROUTE_PATH &&
+          !String(menu.path).includes(process.env.VUE_APP_ROUTE_PATH)
+        ) {
+          // 给路由配置路径加上统一路径
+          menu.path = process.env.VUE_APP_ROUTE_PATH + menu.path;
+        }
         // 去掉最后的斜杠
         if (menu.path.slice(-1) === "/") menu.path = menu.path.slice(0, -1);
         page = pagesByPath[menu.path];
