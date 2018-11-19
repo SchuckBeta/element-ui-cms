@@ -84,6 +84,7 @@ module.exports = {
       "vue-event-hub": "VueEventHub"
     });
   },
+  baseUrl: "./",
   devServer: {
     host: "0.0.0.0",
     port: 8001,
