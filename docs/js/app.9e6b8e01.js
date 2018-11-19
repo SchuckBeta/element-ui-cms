@@ -336,7 +336,7 @@
     (u.o = function(e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
-    (u.p = "/"),
+    (u.p = ""),
     (u.oe = function(e) {
       throw (console.error(e), e);
     });
@@ -3208,4 +3208,4 @@
       });
   }
 });
-//# sourceMappingURL=app.d1a9c41f.js.map
+//# sourceMappingURL=app.9e6b8e01.js.map
