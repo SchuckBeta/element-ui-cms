@@ -84,7 +84,8 @@ module.exports = {
       "vue-event-hub": "VueEventHub"
     });
   },
-  baseUrl: "./",
+  baseUrl: process.env.VUE_APP_ROUTE_PATH || "/",
+  // baseUrl: "./",
   // productionSourceMap: false,
   devServer: {
     host: "0.0.0.0",
