@@ -179,10 +179,6 @@ npm WARN deprecated nomnom babel-preset-es 可以无视，是因为项目依赖�
 
 1.  编译
 
-- 测试环境编译命令
-
-  `npm run build:test`
-
 - 线上环境编译命令
   `npm run build`
 
