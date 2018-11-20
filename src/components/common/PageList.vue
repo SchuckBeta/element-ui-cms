@@ -414,7 +414,7 @@ export default {
       this.$router.push({
         query: Object.assign({}, this.$route.query, { limit: val })
       });
-      console.log(`每页 ${val} 条`);
+      // console.log(`每页 ${val} 条`);
       this.$emit("page-size-change", val);
     },
     /**
@@ -425,7 +425,7 @@ export default {
       this.$router.push({
         query: Object.assign({}, this.$route.query, { page: val })
       });
-      console.log(`当前页: ${val}`);
+      // console.log(`当前页: ${val}`);
       this.$emit("page-change", val);
     },
     /**
@@ -450,7 +450,7 @@ export default {
      * @param filters Object
      */
     handleFilterChange(filters) {
-      console.log(filters);
+      // console.log(filters);
       for (const prop in filters) {
         if (filters.hasOwnProperty(prop)) {
           filters[prop] = filters[prop].join();
