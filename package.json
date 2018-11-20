@@ -33,11 +33,11 @@
     "@panhezeng/utils": "latest",
     "@panhezeng/vue-axios": "latest",
     "@panhezeng/vue-event-hub": "latest",
-    "cos-js-sdk-v5": "latest",
+    "cos-js-sdk-v5": "^0.4.24",
     "element-ui": "latest",
     "vue": "latest",
     "vue-echarts": "latest",
-    "vue-i18n": "latest",
+    "vue-i18n": "^8.3.2",
     "vue-router": "latest",
     "vuex": "latest"
   },
