@@ -109,13 +109,15 @@ function checkRoute(route) {
       }
     } else {
       let { path } = route;
-      if (path.slice(-1) === "/") {
-        // 如果当前访问路由路径是根'/'（url是host）, 则重定向到登录页
-        if (path.length === 1) {
-          path = signInPath;
+      // 如果当前访问路由路径是根'/'（url是host）, 则重定向
+      if (path.length === 1) {
+        if (signIntHref) {
+          path = pageAfterLogin;
         } else {
-          path = path.slice(0, -1);
+          path = signInPath;
         }
+      } else {
+        path = path.slice(0, -1);
       }
 
       // 是否有当前访问路由对应的路由配置
