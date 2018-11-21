@@ -3,7 +3,7 @@ import Router from "vue-router";
 import {
   pages,
   pagesByPath,
-  permissionType,
+  permissionTypes,
   pageAfterLogin
 } from "@/store/config/pages";
 import loadComponent from "@/utils/load-component";
@@ -77,7 +77,7 @@ function checkRoute(route) {
             namespaces.pages,
             typesPages.getters.GET_PERMISSION_TYPE
           )
-        ](signInPath) === permissionType.allow);
+        ](signInPath) === permissionTypes.allow);
 
     // 账号数据是否已准备完毕
     const readyAccount =
@@ -155,8 +155,9 @@ function checkRoute(route) {
         // 否则直接前往当前路由页
         if (
           !currentPermissionType ||
-          currentPermissionType === permissionType.notAllow ||
-          (currentPermissionType === permissionType.afterLogin && !readyAccount)
+          currentPermissionType === permissionTypes.notAllow ||
+          (currentPermissionType === permissionTypes.afterLogin &&
+            !readyAccount)
         ) {
           let pathNotPermission = pages.NotPermission.path + redirectPage;
           if (currentRouteConfig.title) {

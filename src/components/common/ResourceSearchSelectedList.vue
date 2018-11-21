@@ -70,7 +70,7 @@
 <script>
 import { mapState } from "vuex";
 import { getTextByValue } from "@/utils/index";
-import ResourceType from "@/store/config/resource-type";
+import ResourceTypes from "@/store/config/resource-types";
 
 import ResourceSearch from "@/components/common/ResourceSearch";
 
@@ -102,10 +102,10 @@ export default {
       ) {
         return (
           JSON.stringify(this.$attrs["include-type"].slice().sort()) ===
-          JSON.stringify([ResourceType.Course.type])
+          JSON.stringify([ResourceTypes.Course.type])
         );
       } else {
-        return this.$attrs.type === ResourceType.Course.type;
+        return this.$attrs.type === ResourceTypes.Course.type;
       }
     }
   },
@@ -114,9 +114,9 @@ export default {
     to(item) {
       let path;
       let query;
-      const keys = Object.keys(ResourceType);
+      const keys = Object.keys(ResourceTypes);
       for (let i = keys.length; i--; ) {
-        const config = ResourceType[keys[i]];
+        const config = ResourceTypes[keys[i]];
         if (config.type === item.resource_type) {
           path = `${config.pages.path}/edit`;
           query = { id: item.id, disabled: 1 };

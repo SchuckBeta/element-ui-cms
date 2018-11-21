@@ -1,4 +1,8 @@
-import { pages, pagesByPath, permissionType } from "@/store/config/pages/index";
+import {
+  pages,
+  pagesByPath,
+  permissionTypes
+} from "@/store/config/pages/index";
 import defaultPermissions from "@/store/modules/pages/permissions/index";
 import defaultMenus from "@/store/modules/pages/menu/index";
 
@@ -35,7 +39,7 @@ function recursiveIncludePages(
             cloneBreadcrumb.push(page);
             breadcrumbs[page.path] = cloneBreadcrumb;
             // 当前页面权限
-            permissions[page.path] = permissionType.afterLogin;
+            permissions[page.path] = permissionTypes.afterLogin;
           }
           // 如果包括子页面，则进一步处理
           if (
@@ -123,7 +127,7 @@ function recursiveMenu(
         if (page.icon) menu.icon = page.icon;
         menu.name = page.name;
         menu.path = page.path;
-        permissions[page.path] = permissionType.afterLogin;
+        permissions[page.path] = permissionTypes.afterLogin;
         pageBreadcrumb.path = page.path;
         breadcrumbs[page.path] = breadcrumb;
         // 如果父菜单没有icon

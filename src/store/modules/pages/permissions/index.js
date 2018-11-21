@@ -1,4 +1,4 @@
-import { pages, permissionType } from "@/store/config/pages/index";
+import { pages, permissionTypes } from "@/store/config/pages/index";
 
 let dev = {};
 if (process.env.NODE_ENV === "development") {
@@ -6,8 +6,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 export default {
-  [pages.NotFound.path]: permissionType.allow,
-  [pages.NotPermission.path]: permissionType.allow,
-  [pages.SignIn.path]: permissionType.allow,
+  [pages.NotFound.path]: permissionTypes.allow,
+  [pages.NotPermission.path]: permissionTypes.allow,
+  [pages.SignIn.path]: permissionTypes.allow,
   ...dev
 };

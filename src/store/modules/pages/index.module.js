@@ -1,12 +1,12 @@
 import types from "@/store/config/vuex/types/pages";
-import { pagesByPath, permissionType } from "@/store/config/pages";
+import { pagesByPath, permissionTypes } from "@/store/config/pages";
 import defaultPermissions from "@/store/modules/pages/permissions";
 import initMenu from "@/store/modules/pages/utils/init-menu";
 
 const state = {
   // 最终显示用的菜单数据
   menus: [],
-  // 页面访问权限，key是页面路由path，value是permissionType，
+  // 页面访问权限，key是页面路由path，value是permissionTypes，
   permissions: Object.assign({}, defaultPermissions),
   // 页面标签，[{path,query,title,},...]
   tabs: [],
@@ -33,7 +33,7 @@ const getters = {
         return currentPermission;
       }
     }
-    return permissionType.notAllow;
+    return permissionTypes.notAllow;
   },
   [types.getters.GET_BREADCRUMB]: state => path => {
     const breadcrumbs = state.breadcrumbs;

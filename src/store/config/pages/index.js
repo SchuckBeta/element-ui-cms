@@ -1,7 +1,7 @@
 import importAll from "@/utils/import-all";
 
 // 页面访问权限类型
-export const permissionType = {
+export const permissionTypes = {
   afterLogin: 1,
   allow: 2,
   notAllow: 0
