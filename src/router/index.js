@@ -112,7 +112,7 @@ function checkRoute(route) {
       // 如果当前访问路由路径是根'/'（url是host）, 则重定向
       if (path.length === 1) {
         if (signIntHref) {
-          path = pageAfterLogin;
+          path = pageAfterLogin.path;
         } else {
           path = signInPath;
         }
