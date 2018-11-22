@@ -154,7 +154,7 @@ export default {
         }
       }
       > .main {
-        flex-basis: calc(100% - 201px);
+        width: calc(100% - 201px);
       }
     }
     &.collapse {
@@ -164,7 +164,7 @@ export default {
         }
       }
       > .main {
-        flex-basis: calc(100% - 65px);
+        width: calc(100% - 65px);
       }
     }
     &.left {
