@@ -138,7 +138,7 @@ const mutations = {
   [types.mutations.SWITCH_ROLE](state, { role, roleMenu }) {
     Object.assign(role, roleMenu);
     state.currentRole = role;
-    modulePages.mutations[moduleTypesPages.mutations.SET_MENUS](
+    modulePages.mutations[moduleTypesPages.mutations.SET_PERMISSIONS](
       modulePages.state,
       state.currentRole
     );

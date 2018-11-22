@@ -110,16 +110,17 @@ function checkRoute(route) {
     } else {
       let { path } = route;
       // 如果当前访问路由路径是根'/'（url是host）, 则重定向
-      if (path.length === 1) {
-        if (signIntHref) {
-          path = pageAfterLogin.path;
+      if (path.slice(-1) === "/") {
+        if (path.length === 1) {
+          if (signIntHref) {
+            path = pageAfterLogin.path;
+          } else {
+            path = signInPath;
+          }
         } else {
-          path = signInPath;
+          path = path.slice(0, -1);
         }
-      } else {
-        path = path.slice(0, -1);
       }
-
       // 是否有当前访问路由对应的路由配置
       const currentRouteConfig = pagesByPath[path];
 
