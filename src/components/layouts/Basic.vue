@@ -134,7 +134,7 @@ export default {
     &.top {
       > .side {
         padding: 0 10px;
-        flex-basis: calc(100% - 20px);
+        width: calc(100% - 20px);
         > .el-menu {
           & > .nav-item,
           .nav-menu-item {
@@ -147,7 +147,7 @@ export default {
     &.left,
     &.right {
       > .side {
-        flex-basis: auto;
+        width: auto;
         .el-menu {
           width: 200px !important;
           border: none;

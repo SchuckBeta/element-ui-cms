@@ -90,7 +90,7 @@
 
 - 如需**多文件上传**，src 目录搜索 multiple-upload ，查看 MultipleUpload 组件用法示例
 
-- 如需**文本框输入联想搜索**，src 目录搜索 fetchSuggestions ，查看 el-autocomplete 组件用法示例
+- 如需**文本框输入联想搜索 远程搜索单选**，src 目录搜索 fetchSuggestions ，查看 el-autocomplete 组件用法示例
 
 - 如需**远程搜索多选 tag 和创建 tag 类数据**，src 目录搜索 select-remote-multiple ，查看 SelectRemoteMultiple 组件用法示例
 
