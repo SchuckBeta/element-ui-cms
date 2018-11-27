@@ -1,5 +1,5 @@
 import MixinForm from "@/mixins/form";
-import MixinOption from "@/mixins/options";
+import MixinOptions from "@/mixins/options";
 
 import getObjectItemByPath from "@panhezeng/utils/dist/get-object-item-by-path";
 import { pages } from "@/store/config/pages";
@@ -11,7 +11,7 @@ import { namespaces } from "@/store/config/vuex/index";
 const modulePages = createNamespacedHelpers(namespaces.pages);
 
 export default {
-  mixins: [MixinForm, MixinOption],
+  mixins: [MixinForm, MixinOptions],
   data() {
     return {
       pages,

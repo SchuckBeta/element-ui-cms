@@ -3,10 +3,10 @@ import PageContent from "@/components/common/PageContent";
 import PageList from "@/components/common/PageList";
 import PageListActionBtn from "@/components/common/PageListActionBtn";
 import apiCommon from "@/api/common";
-import MixinOption from "@/mixins/options";
+import MixinOptions from "@/mixins/options";
 
 export default {
-  mixins: [MixinOption],
+  mixins: [MixinOptions],
   components: { PageContent, PageList, PageListActionBtn },
   inheritAttrs: false,
   data() {
