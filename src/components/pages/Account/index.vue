@@ -74,8 +74,8 @@
 <script>
 import MixinFormPassword from "@/mixins/form-password";
 import PageContent from "@/components/common/PageContent";
-import { actions as actionsTypes } from "@/store/config/vuex/types/account";
-import { namespaces } from "@/store/config/vuex/index";
+import { actions as actionsTypes } from "@/config/vuex/types/account";
+import { namespaces } from "@/config/vuex/index";
 import { createNamespacedHelpers } from "vuex";
 
 const { mapState, mapActions } = createNamespacedHelpers(namespaces.account);

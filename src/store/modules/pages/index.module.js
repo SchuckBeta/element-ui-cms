@@ -1,5 +1,5 @@
-import types from "@/store/config/vuex/types/pages";
-import { pagesByPath, permissionTypes } from "@/store/config/pages";
+import types from "@/config/vuex/types/pages";
+import { pagesByPath, permissionTypes } from "@/config/pages";
 import defaultPermissions from "@/store/modules/pages/permissions";
 import initMenu from "@/store/modules/pages/utils/init-menu";
 

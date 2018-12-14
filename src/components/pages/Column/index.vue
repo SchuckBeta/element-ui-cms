@@ -38,7 +38,7 @@
 import MixinList from "@/mixins/list";
 
 import PopoverDialogEdit from "@/components/common/PopoverDialogEdit";
-import { mutations as mutationsTypes } from "@/store/config/vuex/types/index";
+import { mutations as mutationsTypes } from "@/config/vuex/types/index";
 import { mapMutations } from "vuex";
 
 import ResourceIframe from "./components/ResourceIframe";

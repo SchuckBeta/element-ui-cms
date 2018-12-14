@@ -2,11 +2,11 @@ import MixinForm from "@/mixins/form";
 import MixinOptions from "@/mixins/options";
 
 import getObjectItemByPath from "@panhezeng/utils/dist/get-object-item-by-path";
-import { pages } from "@/store/config/pages";
-import { mutations as mutationsTypes } from "@/store/config/vuex/types/index";
-import { mutations as mutationsTypesPages } from "@/store/config/vuex/types/pages";
+import { pages } from "@/config/pages";
+import { mutations as mutationsTypes } from "@/config/vuex/types/index";
+import { mutations as mutationsTypesPages } from "@/config/vuex/types/pages";
 import { mapMutations, createNamespacedHelpers } from "vuex";
-import { namespaces } from "@/store/config/vuex/index";
+import { namespaces } from "@/config/vuex/index";
 
 const modulePages = createNamespacedHelpers(namespaces.pages);
 

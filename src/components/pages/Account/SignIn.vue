@@ -7,7 +7,7 @@
 // 把通用登录界面封装为一个组件，根据需要可以扩展，比如有二次验证需求，可以再增加一个two-step组件，在data设置场景状态，切换组件显示
 import UserNamePassword from "./components/UserNamePassword";
 
-import { pages } from "@/store/config/pages";
+import { pages } from "@/config/pages";
 
 export default {
   name: pages.SignIn.name,

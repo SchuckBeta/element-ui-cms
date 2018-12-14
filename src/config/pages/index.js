@@ -1,4 +1,4 @@
-import importAll from "@/utils/import-all";
+import importAll from "../../utils/import-all";
 
 // 页面访问权限类型
 export const permissionTypes = {

@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import EventTypes from "@/store/config/event-types";
+import EventTypes from "@/config/event-types";
 import ElPopoverDialog from "@panhezeng/el-popover-dialog";
 
 /**

@@ -18,7 +18,7 @@
 import NavMenu from "@/components/common/NavMenu";
 import PageHeader from "@/components/common/PageHeader";
 import PageFooter from "@/components/common/PageFooter";
-import { types as menuLayoutsTypes } from "@/store/config/menu-layouts";
+import { types as menuLayoutsTypes } from "@/config/menu-layouts";
 import { mapState } from "vuex";
 
 export default {

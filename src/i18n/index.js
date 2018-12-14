@@ -5,9 +5,9 @@ import VueI18n from "vue-i18n";
 import ElementLocale from "element-ui/lib/locale";
 // import en from "@/i18n/en";
 // import zhCN from "@/i18n/zh-CN";
-import storageKeys from "@/store/config/storage-keys";
+import storageKeys from "@/config/storage-keys";
 import store from "@/store";
-import lang from "@/store/config/lang";
+import lang from "@/config/lang";
 
 // Vue.use(VueI18n)
 

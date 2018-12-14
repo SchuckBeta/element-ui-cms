@@ -50,9 +50,9 @@
 <script>
 import SwitchLanguage from "@/components/common/SwitchLanguage";
 import MixinFormPassword from "@/mixins/form-password";
-import storageKeys from "@/store/config/storage-keys";
-import { actions as actionsTypes } from "@/store/config/vuex/types/account";
-import { namespaces } from "@/store/config/vuex/index";
+import storageKeys from "@/config/storage-keys";
+import { actions as actionsTypes } from "@/config/vuex/types/account";
+import { namespaces } from "@/config/vuex/index";
 import { createNamespacedHelpers } from "vuex";
 
 const { mapActions } = createNamespacedHelpers(namespaces.account);

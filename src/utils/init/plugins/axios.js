@@ -1,9 +1,9 @@
 import Vue from "vue";
 import store from "@/store/index";
-import { namespaces } from "@/store/config/vuex/index";
+import { namespaces } from "@/config/vuex/index";
 import { withNamespace } from "@/store/utils";
-import typesAccount from "@/store/config/vuex/types/account";
-import cookieKeys from "@/store/config/cookie-keys";
+import typesAccount from "@/config/vuex/types/account";
+import cookieKeys from "@/config/cookie-keys";
 import cookies from "@panhezeng/utils/dist/cookies";
 import { Message } from "element-ui";
 

@@ -59,7 +59,7 @@
     </div>
 </template>
 <script>
-import EventTypes from "@/store/config/event-types";
+import EventTypes from "@/config/event-types";
 import MixinForm from "@/mixins/form";
 import ElPopoverDialog from "@panhezeng/el-popover-dialog";
 import { getTextByValue, getTreeOptionByValue } from "@/utils";

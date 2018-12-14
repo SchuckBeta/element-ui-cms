@@ -1,4 +1,4 @@
-import importAll from "@/utils/import-all";
+import importAll from "../../../utils/import-all";
 
 export const getters = {
   EMPTY_OPTIONS: "EMPTY_OPTIONS"

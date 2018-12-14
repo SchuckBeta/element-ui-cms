@@ -5,14 +5,14 @@ import {
   pagesByPath,
   permissionTypes,
   pageAfterLogin
-} from "@/store/config/pages";
+} from "@/config/pages";
 import loadComponent from "@/utils/load-component";
 import store from "@/store/index";
-import { namespaces } from "@/store/config/vuex/index";
+import { namespaces } from "@/config/vuex/index";
 import { withNamespace } from "@/store/utils";
-import typesAccount from "@/store/config/vuex/types/account";
-import typesPages from "@/store/config/vuex/types/pages";
-import { mutations as mutationsTypes } from "@/store/config/vuex/types/index";
+import typesAccount from "@/config/vuex/types/account";
+import typesPages from "@/config/vuex/types/pages";
+import { mutations as mutationsTypes } from "@/config/vuex/types/index";
 
 // Vue.use(Router)
 

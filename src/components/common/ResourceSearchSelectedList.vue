@@ -70,7 +70,7 @@
 <script>
 import { mapState } from "vuex";
 import { getTextByValue } from "@/utils/index";
-import ResourceTypes from "@/store/config/resource-types";
+import ResourceTypes from "@/config/resource-types";
 
 import ResourceSearch from "@/components/common/ResourceSearch";
 

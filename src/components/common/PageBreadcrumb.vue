@@ -8,8 +8,8 @@
   </el-breadcrumb>
 </template>
 <script>
-import { getters as gettersTypes } from "@/store/config/vuex/types/pages";
-import { namespaces } from "@/store/config/vuex/index";
+import { getters as gettersTypes } from "@/config/vuex/types/pages";
+import { namespaces } from "@/config/vuex/index";
 import { createNamespacedHelpers } from "vuex";
 
 const { mapGetters } = createNamespacedHelpers(namespaces.pages);

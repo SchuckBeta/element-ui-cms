@@ -1,4 +1,4 @@
-import { pages } from "@/store/config/pages/index";
+import { pages } from "@/config/pages/index";
 
 let dev = [];
 if (process.env.NODE_ENV === "development") {

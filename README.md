@@ -10,7 +10,7 @@
 
 ## 目录
 
-```bash
+```
 .
 ├── README.md     # 文档
 ├── dist    # 生产部署文件
@@ -74,7 +74,7 @@
 
 - 在 src/components/pages/ 目录内建立以模块名命名 PascalCase（Pascal Case 命名规范）的目录，index.vue 是该模块默认页。 比如公告 Announcement 模块 src/components/pages/Announcement/ ，index.vue 是公告列表页， Item.vue 是公告详情页，components/Form.vue 是添加和编辑公告的表单组件。
 
-- 在 src/store/config/pages/ 目录内建立以模块名命名 kebab-case（kebab Case 命名规范）的 js 文件，配置该模块的页面路由相关配置。具体页面配置规则请阅读 src/store/config/pages/index.js 内 pages 对象的注释，参考 announcement.js 。
+- 在 src/config/pages/ 目录内建立以模块名命名 kebab-case（kebab Case 命名规范）的 js 文件，配置该模块的页面路由相关配置。具体页面配置规则请阅读 src/config/pages/index.js 内 pages 对象的注释，参考 announcement.js 。
 
 - 如果模块需要出现在导航菜单中，则需要在 api mock 文档的账户信息 /api/cms/account/ 接口的 menu 字段中填写上对应的菜单数据，menu 的 path 必须和页面配置的 path 一致。
 
@@ -100,7 +100,7 @@
 
 - 富文本编辑器、单文件上传组件等自定义组件的表单项验证需要设置 :show-message="!formData.bar" 才能实现预期效果
 
-- src/store/config/form-rules.js src/mixins/form.js 提供常用的表单验证规则
+- src/config/form-rules.js src/mixins/form.js 提供常用的表单验证规则
 
 - element 的表单验证支持的类型和扩展使用方法见[async-validator](https://github.com/yiminghe/async-validator)
 

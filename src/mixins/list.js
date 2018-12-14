@@ -1,4 +1,4 @@
-import { pages, pagesByPath } from "@/store/config/pages";
+import { pages, pagesByPath } from "@/config/pages";
 import PageContent from "@/components/common/PageContent";
 import PageList from "@/components/common/PageList";
 import PageListActionBtn from "@/components/common/PageListActionBtn";

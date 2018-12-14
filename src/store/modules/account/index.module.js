@@ -1,11 +1,11 @@
 import cookies from "@panhezeng/utils/dist/cookies";
-import cookieKeys from "@/store/config/cookie-keys";
+import cookieKeys from "@/config/cookie-keys";
 import storage from "@panhezeng/utils/dist/storage";
-import storageKeys from "@/store/config/storage-keys";
-import types from "@/store/config/vuex/types/account";
+import storageKeys from "@/config/storage-keys";
+import types from "@/config/vuex/types/account";
 import api from "@/api/account";
 import apiRole from "@/api/role";
-import moduleTypesPages from "@/store/config/vuex/types/pages";
+import moduleTypesPages from "@/config/vuex/types/pages";
 import modulePages from "@/store/modules/pages/index.module";
 
 function getToken() {

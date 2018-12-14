@@ -1,4 +1,4 @@
-import formRules from "@/store/config/form-rules";
+import formRules from "@/config/form-rules";
 
 export default {
   data() {

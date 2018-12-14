@@ -36,16 +36,16 @@
 </template>
 <script>
 import SwitchLanguage from "@/components/common/SwitchLanguage";
-import { pages } from "@/store/config/pages";
+import { pages } from "@/config/pages";
 import UserInfo from "@/components/common/UserInfo";
 import ElPopoverDialog from "@panhezeng/el-popover-dialog";
-import menuLayouts from "@/store/config/menu-layouts";
-import { mutations as mutationsTypes } from "@/store/config/vuex/types";
+import menuLayouts from "@/config/menu-layouts";
+import { mutations as mutationsTypes } from "@/config/vuex/types";
 import {
   actions as actionsTypesAccount,
   mutations as mutationsTypesAccount
-} from "@/store/config/vuex/types/account";
-import { namespaces } from "@/store/config/vuex/index";
+} from "@/config/vuex/types/account";
+import { namespaces } from "@/config/vuex/index";
 import { createNamespacedHelpers, mapState, mapMutations } from "vuex";
 
 const moduleAccount = createNamespacedHelpers(namespaces.account);

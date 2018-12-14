@@ -1,11 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { Loading } from "element-ui";
-import types from "@/store/config/vuex/types/index";
-import { namespaces } from "@/store/config/vuex/index";
-import { types as menuLayoutsTypes } from "@/store/config/menu-layouts";
+import types from "@/config/vuex/types/index";
+import { namespaces } from "@/config/vuex/index";
+import { types as menuLayoutsTypes } from "@/config/menu-layouts";
 import importAll from "@/utils/import-all";
-import storageKeys from "@/store/config/storage-keys";
+import storageKeys from "@/config/storage-keys";
 import api from "@/api/common";
 
 // Vue.use(Vuex)

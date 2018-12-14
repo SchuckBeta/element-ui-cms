@@ -16,9 +16,9 @@
   </el-dropdown>
 </template>
 <script>
-import lang from "@/store/config/lang";
-import { mutations as mutationsTypes } from "@/store/config/vuex/types/i18n";
-import { namespaces } from "@/store/config/vuex/index";
+import lang from "@/config/lang";
+import { mutations as mutationsTypes } from "@/config/vuex/types/i18n";
+import { namespaces } from "@/config/vuex/index";
 import { createNamespacedHelpers } from "vuex";
 
 const { mapState, mapMutations } = createNamespacedHelpers(namespaces.i18n);

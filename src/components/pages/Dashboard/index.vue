@@ -37,9 +37,9 @@
 import api from "@/api/common";
 import UserInfo from "@/components/common/UserInfo";
 import PageContent from "@/components/common/PageContent";
-import { pages, pagesByPath } from "@/store/config/pages";
-import { getters as gettersTypesPages } from "@/store/config/vuex/types/pages";
-import { namespaces } from "@/store/config/vuex/index";
+import { pages, pagesByPath } from "@/config/pages";
+import { getters as gettersTypesPages } from "@/config/vuex/types/pages";
+import { namespaces } from "@/config/vuex/index";
 import { createNamespacedHelpers } from "vuex";
 
 const moduleAccount = createNamespacedHelpers(namespaces.account);

@@ -1,7 +1,7 @@
 import {
   getters as gettersTypes,
   actions as actionsTypes
-} from "@/store/config/vuex/types/index";
+} from "@/config/vuex/types/index";
 import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {

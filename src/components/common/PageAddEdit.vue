@@ -10,8 +10,8 @@
 </template>
 <script>
 import PageContent from "@/components/common/PageContent";
-import { mutations as mutationsTypes } from "@/store/config/vuex/types/pages";
-import { namespaces } from "@/store/config/vuex/index";
+import { mutations as mutationsTypes } from "@/config/vuex/types/pages";
+import { namespaces } from "@/config/vuex/index";
 import { createNamespacedHelpers } from "vuex";
 
 const { mapMutations } = createNamespacedHelpers(namespaces.pages);

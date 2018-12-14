@@ -103,7 +103,7 @@
     </page-content>
 </template>
 <script>
-import { mutations as mutationsTypes } from "@/store/config/vuex/types/index";
+import { mutations as mutationsTypes } from "@/config/vuex/types/index";
 import { mapMutations } from "vuex";
 import MixinList from "@/mixins/list";
 

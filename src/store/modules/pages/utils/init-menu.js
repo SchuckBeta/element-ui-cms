@@ -1,8 +1,4 @@
-import {
-  pages,
-  pagesByPath,
-  permissionTypes
-} from "@/store/config/pages/index";
+import { pages, pagesByPath, permissionTypes } from "@/config/pages/index";
 import defaultPermissions from "@/store/modules/pages/permissions/index";
 import defaultMenus from "@/store/modules/pages/menu/index";
 

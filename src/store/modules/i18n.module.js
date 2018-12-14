@@ -1,6 +1,6 @@
-import types from "@/store/config/vuex/types/i18n";
-import storageKeys from "@/store/config/storage-keys";
-import lang from "@/store/config/lang";
+import types from "@/config/vuex/types/i18n";
+import storageKeys from "@/config/storage-keys";
+import lang from "@/config/lang";
 
 const state = {
   locale: localStorage.getItem(storageKeys.lang) || lang.zhCN
