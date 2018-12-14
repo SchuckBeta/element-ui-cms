@@ -1,4 +1,4 @@
-import importAll from "../../utils/import-all";
+import importAll from "@/utils/import-all";
 
 // 页面访问权限类型
 export const permissionTypes = {
@@ -44,11 +44,11 @@ export const pages = {
 };
 
 // 加载独立的页面模块配置
-importAll(
-  require.context("@/store/config/pages/", false, /(?<!index)\.js$/)
-).forEach(module => {
-  Object.assign(pages, module.default);
-});
+importAll(require.context("@/config/pages/", false, /(?<!index)\.js$/)).forEach(
+  module => {
+    Object.assign(pages, module.default);
+  }
+);
 
 // 以路由路径为key的路由配置对象，来自上面的pages，上面key是路由名，这个key是路由路径，这个对象不适用点语法
 export const pagesByPath = {};

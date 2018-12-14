@@ -8,7 +8,7 @@
     <el-form-item :label="$t('page.content.order')" prop="order" :rules="formRules.required">
       <el-input-number v-model="formData.order"/>
     </el-form-item>
-    <el-form-item :label="$t('page.content.selectResource')"  prop="resource_id" :rules="formRules.noFalse"s>
+    <el-form-item :label="$t('page.content.selectResource')"  prop="resource_id" :rules="formRules.noFalse">
       <resource-search :disabled="disabled"
                        :type.sync="formData.resource_type"
                        :id.sync="formData.resource_id"

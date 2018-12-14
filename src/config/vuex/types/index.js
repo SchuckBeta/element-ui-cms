@@ -1,4 +1,4 @@
-import importAll from "../../../utils/import-all";
+import importAll from "@/utils/import-all";
 
 export const getters = {
   EMPTY_OPTIONS: "EMPTY_OPTIONS"
@@ -18,7 +18,7 @@ export const actions = {
 const modules = {};
 
 importAll(
-  require.context("@/store/config/vuex/types/", false, /(?<!index)\.js$/)
+  require.context("@/config/vuex/types/", false, /(?<!index)\.js$/)
 ).forEach(module => {
   modules[module.key] = module.default;
 });

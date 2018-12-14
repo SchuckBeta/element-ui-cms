@@ -34,6 +34,7 @@
 │   │   ├── common   # 公共组件
 │   │   ├── layouts   # 布局组件
 │   │   └── pages   # 页面组件
+│   ├── config    # 项目配置数据，常量
 │   ├── i18n    # 国际化
 │   │   ├── en
 │   │   ├── index.js
@@ -42,7 +43,6 @@
 │   ├── mixins    # 混入
 │   ├── router    # 路由
 │   ├── store
-│   │   ├── config    # 项目配置数据，常量
 │   │   ├── index.js    # vuex主文件
 │   │   └── modules    # vuex模块
 │   └── utils    # 工具方法文件
@@ -68,7 +68,8 @@
 - 浏览器兼容 "browserslist": last 2 chrome version,last 2 firefox version,last 2 safari version,last 2 edge version,ie 11。
 - 不需要的功能可以删除相关代码，比如如果不需要国际化，可以说删除所有 VueI18n 相关代码；不需要切换菜单布局，则可以删除多余的菜单布局代码
 - 本页面国际化切换后，使用reload方式生效，虽然有点不太友好，但是考虑很多地方国际化不是依赖vue i18n模块，而是通过其他方式，还有如果服务端数据也有多语言版本，还需要重新通过接口请求数据等
-- 根据项目需求不同，团队人员技术选型不同，在权限设计上会有所不同，本cms原型的菜单通过后端获得，权限只到页面级别，API按照后端语言Python的Django框架要求设计。如果希望菜单放到前端，权限要细化到增删查改级别，后端使用后端PHP框架，则需要修改相关代码，在相关功能处已经通过注释说明
+- 根据项目需求不同，团队人员技术选型不同，在权限设计上会有所不同，本cms原型的菜单通过后端获得，权限细化到按钮级别，API按照后端语言Python的Django框架要求设计。如果希望菜单放到前端等，后端使用后端PHP框架，则需要修改相关代码，在相关功能处已经通过注释说明
+- src/config/pages/index.js 文件包含了所有页面路由权限相关配置，具体页面访问，按钮显示的逻辑，全项目搜索actionCodes，查看相关代码
 
 ## 开发流程
 
@@ -76,7 +77,11 @@
 
 - 在 src/config/pages/ 目录内建立以模块名命名 kebab-case（kebab Case 命名规范）的 js 文件，配置该模块的页面路由相关配置。具体页面配置规则请阅读 src/config/pages/index.js 内 pages 对象的注释，参考 announcement.js 。
 
-- 如果模块需要出现在导航菜单中，则需要在 api mock 文档的账户信息 /api/cms/account/ 接口的 menu 字段中填写上对应的菜单数据，menu 的 path 必须和页面配置的 path 一致。
+- 如果模块需要出现在导航菜单中，以下方式二选一
+
+    - 在 api mock 文档的账户信息 /api/cms/account/ 接口的 menu_actions 字段中填写上对应的菜单数据，menus 的 path 必须和页面配置的 path 一致。
+    
+    - 在 src/store/modules/pages/menu/development.js 文件内配置本地开发用的临时菜单配置，如果后期后端接口已经添加了该菜单，记得删除
 
 - 在 src/api/ 目录内建立以模块名命名 kebab-case（kebab Case 命名规范）的 js 文件，配置该模块的接口。接口 url 请到 mock 文档查看，如果是列表类的增删查改模块，api 方法可继承 list-fn.js，参考 announcement.js 。
 
@@ -106,6 +111,56 @@
 
 - 如果 element ui 的 icon 不够用，可以使用 svg-icon 组件，src 目录搜索 svg-icon ，查看用法示例。 在[iconfont](http://www.iconfont.cn/)制作下载 icon 的 svg 文件放到 src/assets/img/icons/svg 目录，在 svg-icon 标签的 icon 属性上添上 svg 的名字即可
 
+## 注意
+
+- 两个以上页面级组件会用到的组件放在src/components/common内
+
+- 公共组件和mixins的修改要谨慎，确认是普遍性需求，并且兼容之前代码
+
+- 样式相关
+
+    - 如需定制样式, 在root元素写上 class="目录名-模块名", 示例 <root class="directory-file">
+
+    - 所有模块样式都嵌套在 root class 内, 示例 .directory-file { .content-main {} } 
+    
+    - 不要使用scoped-css，原因很多，比如父组件无法覆写子组件的scoped-css，通过类似v-html方式添加的dom，scoped-css不起作用等
+    
+    - element ui 的部分组件在渲染后是会提取放到body元素下，比如el-dialog，所以这些组件的class name和样式，需要特别处理，必须保证class name的唯一性，使用目录名-模块名-组件名的方式实现，并且不能嵌套在 root class 内 
+
+- 如需组件名, 组件名由目录名和文件名构成, 帕斯卡命名法, 示例 name: 'DirectoryFile'
+
+- 列表页组件相关
+
+    - 如需查询表单, page-list标签写上 :query-form="queryForm" 属性
+
+    - 如需带展开功能的查询表单, page-list标签写上 collapse-form 属性
+    
+    - 通过定义页面组件的data，computed可以覆写MixinList的data，computed定义, 比如 apiList, apiListParamsKey等
+    
+    - 请求列表数据的接口参数定义，有两种方式，一个是通过页面组件的data定义queryForm对象，配合列表组件的query-form使用，另一个通过页面组件的computed定义apiListParamsKey数组,配合列表组件的api-list-params-key使用。在混入类src/mixins/list.js里面queryForm和apiListParamsKey都有定义默认值，apiListParamsKey默认使用this.filters的值，this.filters通常用于el-table组件的筛选属性filters
+    
+    - 使用page-list组件默认方式获取列表数据的页面，没有通过query-form和api-list-params-key传入的参数都会被过滤掉，不会加入列表接口参数
+
+    - 如需批量操作按钮, page-list标签写上 header-btn-batch 属性
+
+        - 如需查询表单, 在page-list元素内写上命名slot子元素，示例 <template slot="query-form" slot-scope="{formData}">表单项</template>
+    
+            - 如需带展开功能的查询表单, template标签写上 slot-scope="{formData, collapse}" 属性
+            
+                - query-form元素内写上子元素 <template v-if="!collapse">展开后显示的表单项</template>
+                
+        - 如需增加header区域按钮，在page-list元素内写上命名slot子元素，slot名字查看page-list组件内slot name="header打头的代码
+        
+        - 列表元素是在page-list元素内写上slot命名为list的子元素
+        
+     - 在page-list组件内查看所有slot的可使用slot-scope数据
+     
+- 添加编辑页组件相关
+
+    - 通过定义页面组件的data，computed可以覆写MixinFormAddEdit的data，computed定义, 比如 id, apiCreate等
+    
+    - MixinFormAddEdit提供了提交前拦截，不返回等机制，具体看src/mixins/form-add-edit.js
+        
 - 如果是在 jsx 中使用组件，需要通过 Vue.component 方式注册组件
 
 - 注意，用 element 组件的 Table 表格组件，用属性修改宽度样式等，需要刷新页面才能看到正式效果，热更新的方式会异常
@@ -114,7 +169,7 @@
 
 ## IDE
 
-WebStorm:
+### WebStorm
 
 Languages and Frameworks | JavaScript | Webpack，点击文件夹图标选择项目的node_modules/@vue/cli-service/webpack.config.js文件，实现智能跳转和提示
 
@@ -126,7 +181,7 @@ Languages and Frameworks | JavaScript ，选择 JSX
 
 每次安装了新版本 node，需要搜索 Node.js ， Node interpreter 选择最新版本 node ， 勾选 Coding assistance for Node.js ， Package manager 选择 npm
 
-VSCode:
+### VSCode
 
 配置 jsconfig.json 文件，实现智能跳转和提示
 
@@ -137,7 +192,7 @@ VSCode:
 ```
     "prettier.eslintIntegration": true, // 开启 eslint 支持
     "eslint.autoFixOnSave": true, // 每次保存时自动修复
-    "eslint.validate": [ //开启对.vue文件中错误的检查
+    "eslint.validate": [ // 开启对.vue文件中错误的检查
         "javascript",
         "javascriptreact",
         {
@@ -149,6 +204,20 @@ VSCode:
             "autoFix": true
         }
     ]
+```
+
+### Sublime Text
+
+安装插件：[SublimeLinter-eslint](https://github.com/SublimeLinter/SublimeLinter-eslint)
+
+修改SublimeLinter配置，SublimeLinter settings syntax_map
+```
+        "syntax_map": {
+            //・・・
+            "vue": "javascript",
+            "vue component": "javascript",
+            "html": "javascript",
+        },
 ```
 
 ## 环境
@@ -175,7 +244,7 @@ VSCode:
 
 - 如果 npm run build 失败报错，可以尝试删除 node_modules 文件夹，package-lock.json yarn.lock 文件（如果有的话），再重新执行上面的命令
 
-npm WARN deprecated nomnom babel-preset-es 可以无视，是因为项目依赖的底层包没有更新造成的，不影响项目使用
+npm WARN deprecated nomnom babel-preset-es 可以无视，是因为项目依赖的底层包没有更新造成的，不影响项目功能
 
 ## 部署
 
