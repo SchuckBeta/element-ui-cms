@@ -48,12 +48,14 @@ export default {
         return state.pages.selectedTab.path;
       },
       value => {
-        this.selectedTabPath = value;
-        if (this.$route.path !== value) {
+        this.$nextTick(function() {
+          this.selectedTabPath = value;
           this.$nextTick(function() {
-            this.$router.push(this.selectedTab);
+            if (this.$route.path !== value) {
+              this.$router.push(this.selectedTab);
+            }
           });
-        }
+        });
       },
       {
         immediate: true
